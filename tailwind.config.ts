@@ -16,6 +16,19 @@ const config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        ocean: {
+          DEFAULT: "hsl(var(--ocean))",
+          deep: "hsl(var(--ocean-deep))",
+          soft: "hsl(var(--ocean-soft))",
+        },
+        coral: {
+          DEFAULT: "hsl(var(--coral))",
+          deep: "hsl(var(--coral-deep))",
+          soft: "hsl(var(--coral-soft))",
+        },
+        sand: "hsl(var(--sand))",
+        ink: "hsl(var(--ink))",
+        paper: "hsl(var(--paper))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -41,6 +54,16 @@ const config = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      fontFamily: {
+        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: [
+          "Plus Jakarta Sans",
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif",
+        ],
       },
     },
   },
