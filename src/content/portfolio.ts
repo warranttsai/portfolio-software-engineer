@@ -49,9 +49,9 @@ export const profile = {
   linkedinUrl: "https://www.linkedin.com/in/warrant-tsai-9211223b8/",
   instagramUrl: "https://www.instagram.com/warrant_mr_kaeru/",
   instagramHandle: "@warrant_mr_kaeru",
+  githubUrl: "https://github.com/warranttsai",
   emailHref: "https://www.linkedin.com/in/warrant-tsai-9211223b8/",
   contactLabel: "Connect on LinkedIn",
-  githubUrl: "#projects",
   resumeHref: "https://www.linkedin.com/in/warrant-tsai-9211223b8/",
 };
 
