@@ -1,14 +1,16 @@
-import { useState } from "react";
-import { motion, type Variants } from "framer-motion";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion, type Variants } from "framer-motion";
 import {
   ArrowRight,
   BadgeCheck,
   Award,
+  ChevronUp,
   ExternalLink,
   Github,
   Instagram,
   Linkedin,
   Mail,
+  Maximize2,
   Menu,
   Music2,
   Phone,
@@ -96,6 +98,29 @@ function SectionIntro({
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [selectedCertificate, setSelectedCertificate] = useState<
+    (typeof certifications)[number] | null
+  >(null);
+
+  useEffect(() => {
+    if (!selectedCertificate) {
+      return;
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setSelectedCertificate(null);
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedCertificate]);
 
   return (
     <main className="overflow-x-hidden bg-paper">
@@ -531,25 +556,36 @@ function App() {
             copy="AWS credentials that support the engineering work I am growing into: operations, architecture, and practical cloud fluency."
           />
           <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {certifications.map(({ title, image, alt }) => (
-              <article
-                key={title}
-                className="overflow-hidden rounded-3xl border border-slate-100 bg-white transition hover:-translate-y-1 soft-shadow"
+            {certifications.map((certificate) => (
+              <button
+                type="button"
+                onClick={() => setSelectedCertificate(certificate)}
+                aria-label={`Expand ${certificate.title}`}
+                title={`Expand ${certificate.title}`}
+                key={certificate.title}
+                className="group overflow-hidden rounded-3xl border border-slate-100 bg-white text-left transition hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-4 soft-shadow"
               >
-                <div className="aspect-[4/3] overflow-hidden bg-ocean-soft">
-                  <img src={image} alt={alt} className="h-full w-full object-cover" />
+                <div className="relative aspect-[4/3] overflow-hidden bg-ocean-soft">
+                  <img
+                    src={certificate.image}
+                    alt={certificate.alt}
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  />
+                  <span className="absolute right-3 top-3 grid size-10 place-items-center rounded-xl bg-white/90 text-ocean shadow-sm">
+                    <Maximize2 size={18} />
+                  </span>
                 </div>
                 <div className="p-6">
                   <div className="mb-4 grid size-12 place-items-center rounded-2xl bg-ocean-soft text-ocean">
                     <Award size={22} />
                   </div>
-                  <h3 className="text-lg font-bold">{title}</h3>
+                  <h3 className="text-lg font-bold">{certificate.title}</h3>
                   <p className="mt-3 text-sm text-slate-600">
                     Part of my ongoing AWS learning path for building and operating
                     reliable cloud-backed software.
                   </p>
                 </div>
-              </article>
+              </button>
             ))}
           </div>
         </div>
@@ -704,6 +740,62 @@ function App() {
           </div>
         </div>
       </footer>
+
+      <a
+        href="#top"
+        aria-label="Back to top"
+        title="Back to top"
+        className="fixed bottom-5 right-5 z-50 grid size-12 place-items-center rounded-2xl bg-ocean text-white shadow-lg shadow-ocean/30 transition hover:-translate-y-1 hover:bg-ocean-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-4"
+      >
+        <ChevronUp size={22} />
+      </a>
+
+      <AnimatePresence>
+        {selectedCertificate ? (
+          <motion.div
+            className="fixed inset-0 z-[70] grid place-items-center bg-ink/80 p-4 backdrop-blur-sm"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="certificate-preview-title"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedCertificate(null)}
+          >
+            <motion.div
+              className="relative max-h-[90vh] w-full max-w-5xl overflow-hidden rounded-3xl bg-white p-3 shadow-2xl"
+              initial={{ opacity: 0, scale: 0.96, y: 16 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.96, y: 16 }}
+              onClick={(event) => event.stopPropagation()}
+            >
+              <div className="flex items-center justify-between gap-4 px-2 pb-3">
+                <h3
+                  id="certificate-preview-title"
+                  className="text-base font-bold text-ink md:text-lg"
+                >
+                  {selectedCertificate.title}
+                </h3>
+                <Button
+                  type="button"
+                  variant="secondary"
+                  size="icon"
+                  className="rounded-xl"
+                  aria-label="Close certificate preview"
+                  onClick={() => setSelectedCertificate(null)}
+                >
+                  <X size={20} />
+                </Button>
+              </div>
+              <img
+                src={selectedCertificate.image}
+                alt={selectedCertificate.alt}
+                className="max-h-[78vh] w-full rounded-2xl object-contain"
+              />
+            </motion.div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </main>
   );
 }
