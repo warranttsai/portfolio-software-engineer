@@ -4,6 +4,10 @@ import solutionsArchitectCertificate from "@/src/assets/aws/aws-certified-soluti
 import instagramScreenshot from "@/src/assets/social-media/warrant-mr-kaeru-ins-main-page-ss.png";
 import symphonyAwsWorkshop from "@/src/assets/symphony3/aws-citadel-ws.jpg";
 import symphonyTeamPhoto from "@/src/assets/symphony3/group-photo-1.jpg";
+import blackBallLogo from "@/src/assets/career/blackball-logo.jpg";
+import cleanstormwaterLogo from "@/src/assets/career/cleanstormwater-logo.jpg";
+import filaLogo from "@/src/assets/career/fila-logo.jpg";
+import symphony3Logo from "@/src/assets/career/symphony3-logo.png";
 
 export type Accent = "ocean" | "coral" | "ink";
 
@@ -19,9 +23,13 @@ export type ExperienceItem = {
   period: string;
   role: string;
   company: string;
+  employmentType: string;
   location: string;
+  locationType: string;
   mark: string;
+  logo?: string;
   bullets: string[];
+  skills?: string[];
 };
 
 export const profile = {
@@ -76,38 +84,71 @@ export const skills = [
 
 export const experience: ExperienceItem[] = [
   {
-    period: "Current",
+    period: "May 2024 - Present",
     role: "Associate Engineer",
     company: "Symphony3",
-    location: "Melbourne",
+    employmentType: "Full-time",
+    location: "Melbourne, Victoria, Australia",
+    locationType: "Hybrid",
     mark: "S3",
+    logo: symphony3Logo,
     bullets: [
-      "Contributing to digital and integration solutions for client-facing platforms.",
-      "Building practical engineering habits across React, TypeScript, AWS, and delivery workflows.",
-      "Learning from senior engineers while turning business problems into reliable software.",
+      "Developed and maintained end-to-end applications with React and JavaScript frontends plus Java, Python, and C# backend services.",
+      "Managed infrastructure maintenance and deployment workflows across AWS, Upsun, and cPanel to support reliable code delivery.",
+      "Analyzed cloud resource usage, identified inefficiencies, and right-sized environments to reduce operational overhead.",
+      "Led technical integration work connecting platforms and services into unified, high-performance workflows.",
     ],
+    skills: ["React", "JavaScript", "Java", "Python", "C#", "AWS", "Upsun", "cPanel", "Systems Integration"],
   },
   {
-    period: "Education",
-    role: "Software engineering graduate",
-    company: "RMIT University",
-    location: "Melbourne",
-    mark: "RU",
+    period: "Jan 2023 - Dec 2025",
+    role: "Customer Service Assistant",
+    company: "FILA",
+    employmentType: "Contract",
+    location: "Melbourne, Victoria, Australia",
+    locationType: "On-site",
+    mark: "FI",
+    logo: filaLogo,
     bullets: [
-      "Developed a foundation in software design, web development, databases, and cloud concepts.",
-      "Built project experience through research, collaboration, and applied engineering coursework.",
+      "Supported customers at Melbourne DFO South Wharf in a high-traffic retail environment.",
+      "Handled multilingual communication, cashiering, product queries, and store-floor support with care and consistency.",
+      "Built strong service habits around communication, prioritisation, and calm problem-solving under pressure.",
     ],
+    skills: ["Customer Service", "Multilingual Communication", "Cashiering", "Retail Operations"],
   },
   {
-    period: "Ongoing",
-    role: "Cloud and software learner",
-    company: "Independent practice",
-    location: "Australia",
-    mark: "AWS",
+    period: "Jun 2022 - May 2024",
+    role: "Software Intern",
+    company: "Cleanstormwater",
+    employmentType: "Freelance",
+    location: "Melbourne, Victoria, Australia",
+    locationType: "Hybrid",
+    mark: "CS",
+    logo: cleanstormwaterLogo,
     bullets: [
-      "Earned AWS credentials across practitioner, CloudOps, and solutions architecture pathways.",
-      "Keep a portfolio mindset: document, refine, and turn small experiments into reusable work.",
+      "Developed and maintained full-stack features using React, Python, and PostgreSQL.",
+      "Managed AWS cloud infrastructure components and deployment workflows while building hands-on cloud experience.",
+      "Supported Agile delivery by facilitating daily stand-ups and tracking sprint progress in Jira and Bitbucket.",
+      "Streamlined DevOps operations through repository management, issue tracking, and cross-platform delivery coordination.",
     ],
+    skills: ["React", "Python", "PostgreSQL", "AWS", "Jira", "Bitbucket", "Agile", "HTML5"],
+  },
+  {
+    period: "Mar 2021 - May 2022",
+    role: "Customer Service Representative",
+    company: "BlackBall Chinatown",
+    employmentType: "Part-time",
+    location: "Melbourne, Victoria, Australia",
+    locationType: "On-site",
+    mark: "BB",
+    logo: blackBallLogo,
+    bullets: [
+      "Maintained quality and speed in a fast-paced service environment during peak traffic periods.",
+      "Followed detailed recipes, food safety protocols, and standard operating procedures to keep product quality consistent.",
+      "Monitored stock levels and coordinated replenishment to prevent downtime in shop operations.",
+      "Assisted with basic troubleshooting for POS systems and digital payment terminals.",
+    ],
+    skills: ["Operations", "SOPs", "Inventory Coordination", "POS Troubleshooting", "Customer Service"],
   },
 ];
 

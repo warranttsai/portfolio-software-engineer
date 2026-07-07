@@ -365,13 +365,24 @@ function App() {
                 >
                   <div className="rounded-2xl border border-white bg-white p-6 transition hover:-translate-y-1 soft-shadow">
                     <div className="flex items-center gap-3">
-                      <div className="grid size-11 place-items-center rounded-xl bg-ocean text-sm font-bold text-white">
-                        {item.mark}
+                      <div className="grid size-12 shrink-0 place-items-center overflow-hidden rounded-xl border border-slate-100 bg-white text-sm font-bold text-ocean">
+                        {item.logo ? (
+                          <img
+                            src={item.logo}
+                            alt={`${item.company} logo`}
+                            className="h-full w-full object-contain p-1.5"
+                          />
+                        ) : (
+                          item.mark
+                        )}
                       </div>
                       <div>
                         <h3 className="text-lg font-bold">{item.role}</h3>
                         <div className="text-sm text-slate-500">
-                          {item.company} · {item.location}
+                          {item.company} · {item.employmentType}
+                        </div>
+                        <div className="mt-0.5 text-xs text-slate-400">
+                          {item.location} · {item.locationType}
                         </div>
                       </div>
                     </div>
@@ -383,6 +394,13 @@ function App() {
                         </li>
                       ))}
                     </ul>
+                    {item.skills && item.skills.length > 0 ? (
+                      <div className="mt-5 flex flex-wrap gap-2">
+                        {item.skills.map((skill) => (
+                          <Chip key={`${item.company}-${skill}`}>{skill}</Chip>
+                        ))}
+                      </div>
+                    ) : null}
                   </div>
                 </div>
               </motion.article>
