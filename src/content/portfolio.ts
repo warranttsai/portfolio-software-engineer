@@ -43,7 +43,7 @@ export const profile = {
   availability: "Open to learning, collaboration, and selected opportunities",
   tagline: "I build interfaces and cloud-aware systems that connect people.",
   intro:
-    "an associate engineer at Symphony3, growing across software engineering, cloud, integrations, and product-minded delivery. I like practical systems, clean interfaces, and teams that keep learning in public.",
+    "Master of IT graduate from RMIT, now Associate Engineer at Symphony3, growing across software engineering, cloud, integrations, and product-minded delivery. I like practical systems, clean interfaces, and teams that keep learning in public.",
   heroStatus: "Associate Engineer @ Symphony3",
   heroSubtext: "Software engineering, cloud practice, and connected digital experiences",
   linkedinUrl: "https://www.linkedin.com/in/warrant-tsai-9211223b8/",
@@ -82,6 +82,7 @@ export const skills = [
   "Solutions Architecture",
   "Integrations",
   "Digital Experiences",
+  "Master of IT",
   "RMIT University",
   "Symphony3",
   "Community",
@@ -201,6 +202,17 @@ export const certifications = [
     alt: "AWS Certified Solutions Architect Associate certificate",
   },
 ];
+
+export const education = [
+  {
+    title: "Master of Information Technology",
+    institution: "RMIT University",
+    period: "2021 - 2022",
+    location: "Melbourne, Australia",
+    description: "Graduate degree focused on software engineering, cloud systems, and modern development practices.",
+  },
+];
+
 
 export const socialGallery = [
   {
