@@ -8,8 +8,10 @@ import {
   Github,
   Instagram,
   Linkedin,
+  Mail,
   Menu,
   Music2,
+  Phone,
   Play,
   Sparkles,
   X,
@@ -488,7 +490,7 @@ function App() {
             {socialGallery.map((item, index) => (
               <motion.a
                 key={item.title}
-                href={index === 0 ? profile.instagramUrl : profile.linkedinUrl}
+                href={item.href}
                 target="_blank"
                 rel="noreferrer"
                 className={cn(
@@ -561,24 +563,39 @@ function App() {
               <div className="md:col-span-5">
                 <Chip>05 - Current focus</Chip>
                 <h2 className="mt-4 text-3xl font-extrabold md:text-4xl">
-                  Growing where software meets cloud.
+                  Becoming stronger across DevOps and full-stack delivery.
                 </h2>
                 <p className="mt-3 text-slate-600">
-                  My next chapter is about becoming useful across the whole path:
-                  understanding the user, building the interface, and knowing how
-                  the cloud systems behind it behave.
+                  I am working toward becoming a dependable DevOps engineer and
+                  full-stack developer: someone who can build useful products,
+                  operate reliable systems, and use AI thoughtfully to move
+                  faster without losing engineering judgment.
                 </p>
                 <div className="mt-5 flex flex-wrap gap-2">
-                  {["React", "AWS", "Integrations", "Client delivery"].map((tag) => (
+                  {[
+                    "DevOps",
+                    "Full-stack",
+                    "AWS DevOps Pro",
+                    "AI-assisted work",
+                  ].map((tag) => (
                     <Chip key={tag}>{tag}</Chip>
                   ))}
                 </div>
               </div>
               <div className="grid gap-3 md:col-span-7 md:grid-cols-3">
                 {[
-                  ["Frontend craft", "Readable UI, accessible flows, and maintainable React components."],
-                  ["Cloud fluency", "AWS concepts, operations habits, and architecture tradeoffs."],
-                  ["Team delivery", "Asking better questions, documenting decisions, and improving steadily."],
+                  [
+                    "DevOps depth",
+                    "Preparing for the AWS Certified DevOps Engineer - Professional certificate while strengthening CI/CD, monitoring, reliability, and infrastructure habits.",
+                  ],
+                  [
+                    "Full-stack range",
+                    "Growing across frontend, backend, databases, APIs, and deployment so I can understand and improve the whole delivery path.",
+                  ],
+                  [
+                    "AI leverage",
+                    "Learning how to use AI tools for research, debugging, automation, documentation, and faster iteration while keeping ownership of the final work.",
+                  ],
                 ].map(([title, copy]) => (
                   <div
                     key={title}
@@ -613,7 +630,7 @@ function App() {
                 people building thoughtful digital products.
               </p>
               <Button asChild size="lg" className="mt-6 rounded-2xl bg-ocean text-white hover:bg-ocean/90">
-                <a href={profile.linkedinUrl} target="_blank" rel="noreferrer">
+                <a href={profile.emailHref}>
                   {profile.contactLabel} <ArrowRight size={16} />
                 </a>
               </Button>
@@ -649,6 +666,29 @@ function App() {
                     <Icon size={20} />
                   </a>
                 ))}
+              </div>
+              <div className="mt-7 text-xs font-semibold uppercase tracking-widest text-white/50">
+                Contact
+              </div>
+              <div className="mt-4 space-y-3 text-sm text-white/80">
+                <a
+                  href={profile.emailHref}
+                  className="flex items-center gap-3 transition hover:text-white"
+                >
+                  <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-white/10 text-ocean">
+                    <Mail size={17} />
+                  </span>
+                  <span className="break-all">{profile.email}</span>
+                </a>
+                <a
+                  href={profile.phoneHref}
+                  className="flex items-center gap-3 transition hover:text-white"
+                >
+                  <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-white/10 text-ocean">
+                    <Phone size={17} />
+                  </span>
+                  <span>{profile.phone}</span>
+                </a>
               </div>
               <p className="mt-5 text-xs text-white/50">
                 {profile.location} · {profile.timezone}

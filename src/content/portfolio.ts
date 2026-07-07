@@ -50,9 +50,14 @@ export const profile = {
   instagramUrl: "https://www.instagram.com/warrant_mr_kaeru/",
   instagramHandle: "@warrant_mr_kaeru",
   githubUrl: "https://github.com/warranttsai",
-  emailHref: "https://www.linkedin.com/in/warrant-tsai-9211223b8/",
-  contactLabel: "Connect on LinkedIn",
+  email: "warrant1997@gmail.com",
+  emailHref: "mailto:warrant1997@gmail.com",
+  phone: "+61 450 601 208",
+  phoneHref: "tel:+61450601208",
+  contactLabel: "Email me",
   resumeHref: "https://www.linkedin.com/in/warrant-tsai-9211223b8/",
+  citadelWorkshopPostUrl:
+    "https://www.linkedin.com/posts/warrant-tsai-9211223b8_truely-appreciate-symphony3-for-the-opportunity-ugcPost-7473128434118909952-kS7f/",
 };
 
 export const navItems = [
@@ -202,17 +207,20 @@ export const socialGallery = [
     title: "Instagram profile",
     image: instagramScreenshot,
     alt: "Screenshot of Warrant Tsai's Instagram profile",
+    href: profile.instagramUrl,
     className: "col-span-2 row-span-2",
   },
   {
     title: "AWS workshop",
     image: symphonyAwsWorkshop,
     alt: "Warrant Tsai at an AWS workshop",
+    href: profile.citadelWorkshopPostUrl,
   },
   {
     title: "Symphony3 team",
     image: symphonyTeamPhoto,
     alt: "Symphony3 team group photo",
+    href: profile.linkedinUrl,
     className: "col-span-2",
   },
 ];
