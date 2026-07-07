@@ -4,7 +4,7 @@ A modern, responsive portfolio website showcasing experience, projects, certific
 
 ## 🌐 Live Demo
 
-Visit the portfolio at: [Your Portfolio URL] (to be updated with deployment link)
+Visit the portfolio at: [https://warranttsai.github.io/portfolio-software-engineer/](https://warranttsai.github.io/portfolio-software-engineer/)
 
 ## 📋 About
 
