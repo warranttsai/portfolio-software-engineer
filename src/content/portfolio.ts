@@ -4,6 +4,9 @@ import solutionsArchitectCertificate from "@/src/assets/aws/aws-certified-soluti
 import instagramScreenshot from "@/src/assets/social-media/warrant-mr-kaeru-ins-main-page-ss.png";
 import symphonyAwsWorkshop from "@/src/assets/symphony3/aws-citadel-ws.jpg";
 import symphonyTeamPhoto from "@/src/assets/symphony3/group-photo-1.jpg";
+import symphonyTeamPhotoTwo from "@/src/assets/symphony3/group-photo-2.jpg";
+import foGuangShanOne from "@/src/assets/volunteering/2026-fo-guang-shan/1.jpg";
+import foGuangShanTwo from "@/src/assets/volunteering/2026-fo-guang-shan/2.jpg";
 import blackBallLogo from "@/src/assets/career/blackball-logo.jpg";
 import cleanstormwaterLogo from "@/src/assets/career/cleanstormwater-logo.jpg";
 import filaLogo from "@/src/assets/career/fila-logo.jpg";
@@ -63,6 +66,7 @@ export const profile = {
 export const navItems = [
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
+  { label: "Dance", href: "#dance", coral: true },
   { label: "Certifications", href: "#certifications" },
   { label: "Instagram", href: "#social", coral: true },
 ];
@@ -235,4 +239,259 @@ export const socialGallery = [
     href: profile.linkedinUrl,
     className: "col-span-2",
   },
+  {
+    title: "Symphony3 crew",
+    image: symphonyTeamPhotoTwo,
+    alt: "Warrant Tsai with the Symphony3 team",
+    href: profile.linkedinUrl,
+  },
+  {
+    title: "Volunteering",
+    image: foGuangShanOne,
+    alt: "Warrant Tsai volunteering at Fo Guang Shan in 2026",
+    href: profile.instagramUrl,
+  },
+  {
+    title: "Community day",
+    image: foGuangShanTwo,
+    alt: "Warrant Tsai giving back at a Fo Guang Shan community event",
+    href: profile.instagramUrl,
+  },
 ];
+
+// -- Street dance ---------------------------------------------------------
+
+// Eagerly import every showcase image so the gallery stays data-driven.
+const deepSlymeImages = import.meta.glob(
+  "../assets/social-media/deep-slyme-vol2-showcase/*.{png,jpg,jpeg}",
+  { eager: true, import: "default" },
+) as Record<string, string>;
+const emotionShowcaseImages = import.meta.glob(
+  "../assets/social-media/emotion-dance-studio-2026-guest-showcase/*.{png,jpg,jpeg}",
+  { eager: true, import: "default" },
+) as Record<string, string>;
+const hhiImages = import.meta.glob(
+  "../assets/social-media/hhi-2025/*.{png,jpg,jpeg}",
+  { eager: true, import: "default" },
+) as Record<string, string>;
+
+function sortedImages(record: Record<string, string>): string[] {
+  return Object.keys(record)
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
+    .map((key) => record[key]);
+}
+
+export type DanceShowcase = {
+  title: string;
+  year?: string;
+  blurb: string;
+  images: { src: string; alt: string }[];
+};
+
+export type DanceMilestone = {
+  /** ISO date used to compute dance experience and age dynamically. */
+  date: string;
+  label: string;
+  emoji: string;
+  title: string;
+  description?: string;
+  current?: boolean;
+};
+
+export type DanceBattle = {
+  year: number;
+  month: string;
+  title: string;
+  category: string;
+  result: string;
+  location: string;
+};
+
+// Anchor dates that drive every dynamic duration on the page.
+export const danceStartDate = "2017-09-24";
+export const danceBirthDate = "1997-08-24";
+
+export const danceIntro = {
+  chip: "04 - Street dance",
+  copy:
+    "Away from the keyboard I have been dancing since 2017. Starting with Popping, I've grown through House, Hip-hop, and Locking styles while performing across Australia. Street dance keeps me sharp, expressive, and connected to a community that keeps pushing each other to grow.",
+  styles: ["Popping", "House", "Hip-hop", "Locking", "Freestyle", "Showcase"],
+};
+
+export const danceTimeline: DanceMilestone[] = [
+  {
+    date: "2017-09-24",
+    label: "September 24, 2017",
+    emoji: "💃",
+    title: "Started dancing with Popping",
+    description: "Where the journey began—discovering the groove and isolation of Popping dance.",
+  },
+  {
+    date: "2020-07-01",
+    label: "July 2020",
+    emoji: "✈️",
+    title: "Moved to Melbourne, Australia",
+    description: "New city, new scenes. Exposed to House dance, Hip-hop dance, and styles beyond what I knew.",
+  },
+  {
+    date: "2024-03-01",
+    label: "March 2024",
+    emoji: "🔑",
+    title: "Started learning Locking dance",
+    description: "Adding funk, precision, and the sharp lock movements that define the style.",
+  },
+  {
+    date: danceStartDate,
+    label: "Today",
+    emoji: "🎭",
+    title: "Still dancing, still growing",
+    description: "Chasing cleaner grooves, bigger stages, and fresh challenges across styles.",
+    current: true,
+  },
+];
+
+export const danceBattles: DanceBattle[] = [
+  {
+    year: 2026,
+    month: "May",
+    title: "BTTB Vol. 4",
+    category: "1v1 Battle",
+    result: "TOP 7",
+    location: "Melbourne, VIC",
+  },
+  {
+    year: 2025,
+    month: "March",
+    title: "Bounce Back Vol. 2",
+    category: "Battle",
+    result: "TOP 16",
+    location: "Melbourne, VIC",
+  },
+  {
+    year: 2025,
+    month: "April",
+    title: "HHI VIC",
+    category: "Hip Hop International",
+    result: "Gold Medalist",
+    location: "Melbourne, VIC",
+  },
+  {
+    year: 2025,
+    month: "June",
+    title: "Funk Station Vol. 4",
+    category: "Battle",
+    result: "TOP 16",
+    location: "Melbourne, VIC",
+  },
+  {
+    year: 2024,
+    month: "February",
+    title: "Lunar New Year 1V1 Freestyle Battle",
+    category: "1v1 Freestyle",
+    result: "TOP 8",
+    location: "Melbourne, VIC",
+  },
+  {
+    year: 2024,
+    month: "August",
+    title: "LMPB (Last Minute Popping Battle) Vol. 2",
+    category: "2v2 / 1v1",
+    result: "WINNER (2v2) / TOP 16 (1v1)",
+    location: "Melbourne, VIC",
+  },
+  {
+    year: 2023,
+    month: "June",
+    title: "House Round Vol.1 2023",
+    category: "Battle",
+    result: "TOP 10",
+    location: "Melbourne, VIC",
+  },
+  {
+    year: 2022,
+    month: "June",
+    title: "Popping Nation VIC 2022",
+    category: "Team Battle",
+    result: "RUNNER-UP",
+    location: "Melbourne, VIC",
+  },
+  {
+    year: 2022,
+    month: "August",
+    title: "Real Funk Vol.1",
+    category: "1v1",
+    result: "TOP 16",
+    location: "Melbourne, VIC",
+  },
+  {
+    year: 2022,
+    month: "August",
+    title: "Real Funk Vol.1.5",
+    category: "2v2",
+    result: "TOP 8",
+    location: "Melbourne, VIC",
+  },
+  {
+    year: 2022,
+    month: "December",
+    title: "Uni Session",
+    category: "2v2",
+    result: "TOP 16",
+    location: "Melbourne, VIC",
+  },
+];
+
+export const danceShowcases: DanceShowcase[] = [
+  {
+    title: "Emotion Dance Studio Guest Showcase",
+    year: "2026",
+    blurb:
+      "Invited as a guest performer for Emotion Dance Studio's 2026 showcase.",
+    images: sortedImages(emotionShowcaseImages).map((src, index) => ({
+      src,
+      alt: `Emotion Dance Studio 2026 guest showcase performance ${index + 1}`,
+    })),
+  },
+  {
+    title: "Hip Hop International",
+    year: "2025",
+    blurb: "On stage for the Hip Hop International 2025 competition.",
+    images: sortedImages(hhiImages).map((src, index) => ({
+      src,
+      alt: `Hip Hop International 2025 performance ${index + 1}`,
+    })),
+  },
+  {
+    title: "Deep Slyme Vol.2",
+    blurb: "Performance moments from the Deep Slyme Vol.2 showcase.",
+    images: sortedImages(deepSlymeImages).map((src, index) => ({
+      src,
+      alt: `Deep Slyme Vol.2 showcase performance ${index + 1}`,
+    })),
+  },
+];
+
+export type Duration = { years: number; months: number };
+
+/** Whole years and months between two dates (month precision, day-aware). */
+export function durationBetween(from: Date, to: Date): Duration {
+  let totalMonths =
+    (to.getFullYear() - from.getFullYear()) * 12 +
+    (to.getMonth() - from.getMonth());
+  if (to.getDate() < from.getDate()) {
+    totalMonths -= 1;
+  }
+  totalMonths = Math.max(totalMonths, 0);
+  return { years: Math.floor(totalMonths / 12), months: totalMonths % 12 };
+}
+
+export function formatDuration({ years, months }: Duration): string {
+  const parts: string[] = [];
+  if (years > 0) {
+    parts.push(`${years} ${years === 1 ? "year" : "years"}`);
+  }
+  if (months > 0) {
+    parts.push(`${months} ${months === 1 ? "month" : "months"}`);
+  }
+  return parts.length > 0 ? parts.join(" ") : "just started";
+}

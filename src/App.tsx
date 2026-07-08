@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion, type Variants } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import {
   ArrowRight,
   BadgeCheck,
@@ -10,7 +10,6 @@ import {
   Instagram,
   Linkedin,
   Mail,
-  Maximize2,
   Menu,
   Music2,
   Phone,
@@ -20,9 +19,18 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { ScrollableGallery } from "@/components/ui/scrollable-gallery";
+import { PreviewImage } from "@/components/ui/preview-image";
 import {
   certifications,
+  danceBirthDate,
+  danceIntro,
+  danceShowcases,
+  danceStartDate,
+  danceTimeline,
+  durationBetween,
   experience,
+  formatDuration,
   heroImages,
   navItems,
   profile,
@@ -98,29 +106,17 @@ function SectionIntro({
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [selectedCertificate, setSelectedCertificate] = useState<
-    (typeof certifications)[number] | null
-  >(null);
+  const [now, setNow] = useState(() => new Date());
 
+  // Keep dance experience and age counters live as time passes.
   useEffect(() => {
-    if (!selectedCertificate) {
-      return;
-    }
+    const interval = window.setInterval(() => setNow(new Date()), 60 * 60 * 1000);
+    return () => window.clearInterval(interval);
+  }, []);
 
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setSelectedCertificate(null);
-      }
-    };
-
-    document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [selectedCertificate]);
+  const danceStart = new Date(danceStartDate);
+  const birthDate = new Date(danceBirthDate);
+  const danceExperience = formatDuration(durationBetween(danceStart, now));
 
   return (
     <main className="overflow-x-hidden bg-paper">
@@ -284,32 +280,31 @@ function App() {
               <div className="relative">
                 <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-ocean/30 to-coral/20 opacity-60 blur-2xl" />
                 <div className="relative rounded-[2rem] border border-white bg-white p-5 soft-shadow">
-                  <div className="relative aspect-square overflow-hidden rounded-[1.5rem]">
-                    <img
-                      src={heroImages.primary}
-                      alt={heroImages.primaryAlt}
-                      className="h-full w-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-transparent to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4 text-white">
-                      <div className="text-xs font-semibold uppercase tracking-widest text-white/80">
-                        Currently
+                  <PreviewImage
+                    src={heroImages.primary}
+                    alt={heroImages.primaryAlt}
+                    title={heroImages.primaryAlt}
+                    className="aspect-square rounded-[1.5rem]"
+                    overlay={
+                      <div className="text-white">
+                        <div className="text-xs font-semibold uppercase tracking-widest text-white/80">
+                          Currently
+                        </div>
+                        <div className="mt-1 text-xl font-bold">
+                          {profile.role} @ {profile.company}
+                        </div>
+                        <div className="text-sm text-white/85">
+                          {profile.heroSubtext}
+                        </div>
                       </div>
-                      <div className="mt-1 text-xl font-bold">
-                        {profile.role} @ {profile.company}
-                      </div>
-                      <div className="text-sm text-white/85">
-                        {profile.heroSubtext}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="mt-3 overflow-hidden rounded-[1.25rem]">
-                    <img
-                      src={heroImages.secondary}
-                      alt={heroImages.secondaryAlt}
-                      className="h-24 w-full object-cover md:h-28"
-                    />
-                  </div>
+                    }
+                  />
+                  <PreviewImage
+                    src={heroImages.secondary}
+                    alt={heroImages.secondaryAlt}
+                    title={heroImages.secondaryAlt}
+                    className="mt-3 h-24 rounded-[1.25rem] md:h-28"
+                  />
                   <div className="absolute -left-4 top-10 rounded-2xl border border-slate-100 bg-white px-4 py-3 soft-shadow">
                     <div className="text-2xl font-extrabold text-ocean">3x</div>
                     <div className="text-[11px] font-medium text-slate-500">
@@ -513,31 +508,152 @@ function App() {
 
           <div className="mt-12 grid auto-rows-[140px] grid-cols-2 gap-3 md:auto-rows-[180px] md:grid-cols-4 md:gap-4">
             {socialGallery.map((item, index) => (
-              <motion.a
+              <motion.div
                 key={item.title}
-                href={item.href}
-                target="_blank"
-                rel="noreferrer"
-                className={cn(
-                  "group relative block overflow-hidden rounded-3xl soft-shadow-coral",
-                  item.className,
-                )}
+                className={cn("min-h-0", item.className)}
                 variants={reveal}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.04 }}
               >
-                <img
+                <PreviewImage
                   src={item.image}
                   alt={item.alt}
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  title={item.title}
+                  href={item.href}
+                  className="h-full rounded-3xl soft-shadow-coral"
+                  overlay={<Chip coral>{item.title}</Chip>}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent" />
-                <div className="absolute bottom-3 left-3 right-3 text-white">
-                  <Chip coral>{item.title}</Chip>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="dance"
+        className="relative overflow-hidden bg-gradient-to-b from-coral-soft to-paper py-24"
+      >
+        <div className="absolute -left-20 top-16 size-72 rounded-full bg-coral/15 blur-3xl" />
+        <div className="absolute -right-16 bottom-10 size-64 rounded-full bg-ocean/10 blur-3xl" />
+        <div className="relative mx-auto max-w-6xl px-5">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <SectionIntro
+              chip={danceIntro.chip}
+              title={
+                <>
+                  Street <span className="grad-coral">dance</span> is my
+                  <br className="hidden md:block" /> other language
+                </>
+              }
+              copy={danceIntro.copy}
+            />
+            <motion.div
+              className="rounded-3xl border border-white bg-white px-6 py-5 text-center soft-shadow-coral"
+              variants={reveal}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <div className="text-xs font-semibold uppercase tracking-widest text-slate-500">
+                Dancing for
+              </div>
+              <div className="mt-1 text-3xl font-extrabold text-coral md:text-4xl">
+                {danceExperience}
+              </div>
+              <div className="mt-1 text-xs text-slate-500">since September 2017</div>
+            </motion.div>
+          </div>
+
+          <div className="mt-8 flex flex-wrap gap-2">
+            {danceIntro.styles.map((style) => (
+              <Chip key={style} coral>
+                <Music2 size={12} /> {style}
+              </Chip>
+            ))}
+          </div>
+
+          <div className="relative mt-14">
+            <div className="absolute bottom-0 left-4 top-0 w-px bg-coral/25 md:left-1/2 md:-translate-x-1/2" />
+            {danceTimeline.map((milestone, index) => {
+              const milestoneDate = milestone.current ? now : new Date(milestone.date);
+              const experience = formatDuration(
+                durationBetween(danceStart, milestoneDate),
+              );
+              const age = formatDuration(durationBetween(birthDate, milestoneDate));
+              return (
+                <motion.article
+                  key={`${milestone.title}-${milestone.date}`}
+                  className="relative mb-10 grid gap-6 md:grid-cols-2"
+                  variants={reveal}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-70px" }}
+                >
+                  <div
+                    className={cn(
+                      "pl-12 md:pl-0",
+                      index % 2 === 0 ? "md:pr-12 md:text-right" : "md:order-2 md:pl-12",
+                    )}
+                  >
+                    <Chip coral>{milestone.label}</Chip>
+                  </div>
+                  <div
+                    className={cn(
+                      "absolute left-4 top-2 size-3 rounded-full ring-4 ring-coral-soft md:left-1/2 md:-translate-x-1/2",
+                      milestone.current ? "bg-ocean" : "bg-coral",
+                    )}
+                  />
+                  <div
+                    className={cn(
+                      "pl-12",
+                      index % 2 === 0 ? "md:pl-12" : "md:order-1 md:pl-0 md:pr-12",
+                    )}
+                  >
+                    <div className="rounded-2xl border border-white bg-white p-6 transition hover:-translate-y-1 soft-shadow">
+                      <div className="flex items-center gap-3">
+                        <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-coral-soft text-xl">
+                          {milestone.emoji}
+                        </span>
+                        <h3 className="text-lg font-bold">{milestone.title}</h3>
+                      </div>
+                      {milestone.description ? (
+                        <p className="mt-3 text-sm text-slate-600">
+                          {milestone.description}
+                        </p>
+                      ) : null}
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        <Chip>Dance experience: {experience}</Chip>
+                        <Chip coral>Age: {age}</Chip>
+                      </div>
+                    </div>
+                  </div>
+                </motion.article>
+              );
+            })}
+          </div>
+
+          <div className="mt-16 space-y-10">
+            {danceShowcases.map((showcase) => (
+              <motion.div
+                key={showcase.title}
+                variants={reveal}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-70px" }}
+              >
+                <div className="flex flex-wrap items-center gap-3">
+                  <h3 className="text-2xl font-extrabold md:text-3xl">
+                    {showcase.title}
+                  </h3>
+                  {showcase.year ? <Chip coral>{showcase.year}</Chip> : null}
                 </div>
-              </motion.a>
+                <p className="mt-2 max-w-2xl text-slate-600">{showcase.blurb}</p>
+                <div className="mt-6">
+                  <ScrollableGallery images={showcase.images} label={showcase.title} />
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -546,7 +662,7 @@ function App() {
       <section id="certifications" className="py-24">
         <div className="mx-auto max-w-6xl px-5">
           <SectionIntro
-            chip="04 - Certifications"
+            chip="05 - Certifications"
             title={
               <>
                 Cloud foundations with <span className="text-ocean">proof</span>{" "}
@@ -557,24 +673,17 @@ function App() {
           />
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {certifications.map((certificate) => (
-              <button
-                type="button"
-                onClick={() => setSelectedCertificate(certificate)}
-                aria-label={`Expand ${certificate.title}`}
-                title={`Expand ${certificate.title}`}
+              <div
                 key={certificate.title}
-                className="group overflow-hidden rounded-3xl border border-slate-100 bg-white text-left transition hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-4 soft-shadow"
+                className="group overflow-hidden rounded-3xl border border-slate-100 bg-white transition hover:-translate-y-1 soft-shadow"
               >
-                <div className="relative aspect-[4/3] overflow-hidden bg-ocean-soft">
-                  <img
-                    src={certificate.image}
-                    alt={certificate.alt}
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                  />
-                  <span className="absolute right-3 top-3 grid size-10 place-items-center rounded-xl bg-white/90 text-ocean shadow-sm">
-                    <Maximize2 size={18} />
-                  </span>
-                </div>
+                <PreviewImage
+                  src={certificate.image}
+                  alt={certificate.alt}
+                  title={certificate.title}
+                  className="aspect-[4/3] bg-ocean-soft"
+                  imgClassName="object-cover"
+                />
                 <div className="p-6">
                   <div className="mb-4 grid size-12 place-items-center rounded-2xl bg-ocean-soft text-ocean">
                     <Award size={22} />
@@ -585,7 +694,7 @@ function App() {
                     reliable cloud-backed software.
                   </p>
                 </div>
-              </button>
+              </div>
             ))}
           </div>
         </div>
@@ -597,7 +706,7 @@ function App() {
             <div className="absolute -right-16 -top-16 size-64 rounded-full bg-ocean/10 blur-2xl" />
             <div className="relative grid items-center gap-8 md:grid-cols-12">
               <div className="md:col-span-5">
-                <Chip>05 - Current focus</Chip>
+                <Chip>06 - Current focus</Chip>
                 <h2 className="mt-4 text-3xl font-extrabold md:text-4xl">
                   Becoming stronger across DevOps and full-stack delivery.
                 </h2>
@@ -750,52 +859,6 @@ function App() {
         <ChevronUp size={22} />
       </a>
 
-      <AnimatePresence>
-        {selectedCertificate ? (
-          <motion.div
-            className="fixed inset-0 z-[70] grid place-items-center bg-ink/80 p-4 backdrop-blur-sm"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="certificate-preview-title"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedCertificate(null)}
-          >
-            <motion.div
-              className="relative max-h-[90vh] w-full max-w-5xl overflow-hidden rounded-3xl bg-white p-3 shadow-2xl"
-              initial={{ opacity: 0, scale: 0.96, y: 16 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.96, y: 16 }}
-              onClick={(event) => event.stopPropagation()}
-            >
-              <div className="flex items-center justify-between gap-4 px-2 pb-3">
-                <h3
-                  id="certificate-preview-title"
-                  className="text-base font-bold text-ink md:text-lg"
-                >
-                  {selectedCertificate.title}
-                </h3>
-                <Button
-                  type="button"
-                  variant="secondary"
-                  size="icon"
-                  className="rounded-xl"
-                  aria-label="Close certificate preview"
-                  onClick={() => setSelectedCertificate(null)}
-                >
-                  <X size={20} />
-                </Button>
-              </div>
-              <img
-                src={selectedCertificate.image}
-                alt={selectedCertificate.alt}
-                className="max-h-[78vh] w-full rounded-2xl object-contain"
-              />
-            </motion.div>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
     </main>
   );
 }
@@ -844,20 +907,17 @@ function ProjectGrid({ state }: { state: DataState<Project[]> }) {
           viewport={{ once: true, margin: "-70px" }}
           transition={{ delay: index * 0.08 }}
         >
-          <div className="relative aspect-[4/3] overflow-hidden">
-            <img
-              src={project.image}
-              alt={`${project.title} project preview`}
-              className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-transparent to-transparent" />
-            <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
+          <PreviewImage
+            src={project.image}
+            alt={`${project.title} project preview`}
+            title={project.title}
+            className="aspect-[4/3]"
+            overlay={
               <Chip coral={project.accent === "coral"}>
                 <Sparkles size={12} /> Case study
               </Chip>
-              <ExternalLink size={18} />
-            </div>
-          </div>
+            }
+          />
           <div className="p-6">
             <h3 className="text-xl font-bold">{project.title}</h3>
             <p className="mt-3 text-sm leading-6 text-slate-600">
