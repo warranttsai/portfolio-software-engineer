@@ -435,10 +435,10 @@ function App() {
             chip="02 - Selected work"
             title={
               <>
-                Product surfaces with a little <span className="text-ocean">spark</span>
+                Snapshots of how I <span className="text-ocean">build</span>
               </>
             }
-            copy="A few focused examples of engineering, product thinking, and interface craft working together."
+            copy="A few focused examples of engineering practice, cloud learning, and interface craft coming together."
           />
           <ProjectGrid state={projectState} />
         </div>
