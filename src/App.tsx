@@ -23,7 +23,6 @@ import { ScrollableGallery } from "@/components/ui/scrollable-gallery";
 import { PreviewImage } from "@/components/ui/preview-image";
 import {
   certifications,
-  danceBirthDate,
   danceIntro,
   danceShowcases,
   danceStartDate,
@@ -115,7 +114,6 @@ function App() {
   }, []);
 
   const danceStart = new Date(danceStartDate);
-  const birthDate = new Date(danceBirthDate);
   const danceExperience = formatDuration(durationBetween(danceStart, now));
 
   return (
@@ -581,7 +579,6 @@ function App() {
               const experience = formatDuration(
                 durationBetween(danceStart, milestoneDate),
               );
-              const age = formatDuration(durationBetween(birthDate, milestoneDate));
               return (
                 <motion.article
                   key={`${milestone.title}-${milestone.date}`}
@@ -618,15 +615,28 @@ function App() {
                         </span>
                         <h3 className="text-lg font-bold">{milestone.title}</h3>
                       </div>
-                      {milestone.description ? (
-                        <p className="mt-3 text-sm text-slate-600">
-                          {milestone.description}
-                        </p>
-                      ) : null}
-                      <div className="mt-4 flex flex-wrap gap-2">
-                        <Chip>Dance experience: {experience}</Chip>
-                        <Chip coral>Age: {age}</Chip>
-                      </div>
+                      {milestone.kind === "battle" ? (
+                        <div className="mt-4 flex flex-wrap gap-2">
+                          {milestone.category ? <Chip>{milestone.category}</Chip> : null}
+                          {milestone.result ? <Chip coral>{milestone.result}</Chip> : null}
+                          {milestone.location ? (
+                            <span className="inline-flex items-center text-xs text-slate-400">
+                              {milestone.location}
+                            </span>
+                          ) : null}
+                        </div>
+                      ) : (
+                        <>
+                          {milestone.description ? (
+                            <p className="mt-3 text-sm text-slate-600">
+                              {milestone.description}
+                            </p>
+                          ) : null}
+                          <div className="mt-4 flex flex-wrap gap-2">
+                            <Chip>Dance experience: {experience}</Chip>
+                          </div>
+                        </>
+                      )}
                     </div>
                   </div>
                 </motion.article>

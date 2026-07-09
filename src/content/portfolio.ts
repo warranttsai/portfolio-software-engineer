@@ -296,15 +296,11 @@ export type DanceMilestone = {
   title: string;
   description?: string;
   current?: boolean;
-};
-
-export type DanceBattle = {
-  year: number;
-  month: string;
-  title: string;
-  category: string;
-  result: string;
-  location: string;
+  /** "battle" entries render with category/result/location instead of a description. */
+  kind?: "milestone" | "battle";
+  category?: string;
+  result?: string;
+  location?: string;
 };
 
 // Anchor dates that drive every dynamic duration on the page.
@@ -334,11 +330,121 @@ export const danceTimeline: DanceMilestone[] = [
     description: "New city, new scenes. Exposed to House dance, Hip-hop dance, and styles beyond what I knew.",
   },
   {
+    date: "2022-01-01",
+    label: "2022",
+    emoji: "🏆",
+    title: "Popping Nation VIC 2022 (Team LUGIA)",
+    kind: "battle",
+    category: "Team Battle",
+    result: "RUNNER-UP",
+    location: "Melbourne, VIC",
+  },
+  {
+    date: "2022-01-02",
+    label: "2022",
+    emoji: "🏆",
+    title: "Real Funk Vol.1",
+    kind: "battle",
+    category: "1v1",
+    result: "TOP 16",
+    location: "Melbourne, VIC",
+  },
+  {
+    date: "2022-01-03",
+    label: "2022",
+    emoji: "🏆",
+    title: "Real Funk Vol.1.5",
+    kind: "battle",
+    category: "2v2",
+    result: "TOP 8",
+    location: "Melbourne, VIC",
+  },
+  {
+    date: "2022-01-04",
+    label: "2022",
+    emoji: "🏆",
+    title: "Uni Session",
+    kind: "battle",
+    category: "2v2",
+    result: "TOP 16",
+    location: "Melbourne, VIC",
+  },
+  {
+    date: "2023-06-01",
+    label: "June 2023",
+    emoji: "🏆",
+    title: "House Round Vol.1 2023",
+    kind: "battle",
+    category: "Battle",
+    result: "TOP 10",
+    location: "Melbourne, VIC",
+  },
+  {
+    date: "2024-02-01",
+    label: "February 2024",
+    emoji: "🏆",
+    title: "Lunar New Year 1V1 Freestyle Battle",
+    kind: "battle",
+    category: "1v1 Freestyle",
+    result: "TOP 8",
+    location: "Melbourne, VIC",
+  },
+  {
     date: "2024-03-01",
     label: "March 2024",
     emoji: "🔑",
     title: "Started learning Locking dance",
     description: "Adding funk, precision, and the sharp lock movements that define the style.",
+  },
+  {
+    date: "2024-08-01",
+    label: "August 2024",
+    emoji: "🏆",
+    title: "LMPB (Last Minute Popping Battle) Vol. 2",
+    kind: "battle",
+    category: "2v2 / 1v1",
+    result: "WINNER (2v2) / TOP 16 (1v1)",
+    location: "Melbourne, VIC",
+  },
+  {
+    date: "2025-03-01",
+    label: "March 2025",
+    emoji: "🏆",
+    title: "Bounce Back Vol. 2",
+    kind: "battle",
+    category: "Battle",
+    result: "TOP 16",
+    location: "Melbourne, VIC",
+  },
+  {
+    date: "2025-04-01",
+    label: "April 2025",
+    emoji: "🥇",
+    title: "HHI VIC",
+    kind: "battle",
+    category: "Hip Hop International",
+    result: "Gold Medalist",
+    location: "Melbourne, VIC",
+  },
+  {
+    date: "2025-06-01",
+    label: "June 2025",
+    emoji: "🏆",
+    title: "Funk Station Vol. 4",
+    kind: "battle",
+    category: "Battle",
+    result: "TOP 16",
+    location: "Melbourne, VIC",
+  },
+  {
+    date: "2026-05-01",
+    label: "May 2026",
+    emoji: "🏆",
+    title: "BTTB Vol. 4 (7 to Smoke)",
+    kind: "battle",
+    category: "1v1 Battle",
+    result: "TOP 7",
+    location: "Melbourne, VIC",
   },
   {
     date: danceStartDate,
@@ -347,97 +453,6 @@ export const danceTimeline: DanceMilestone[] = [
     title: "Still dancing, still growing",
     description: "Chasing cleaner grooves, bigger stages, and fresh challenges across styles.",
     current: true,
-  },
-];
-
-export const danceBattles: DanceBattle[] = [
-  {
-    year: 2026,
-    month: "May",
-    title: "BTTB Vol. 4",
-    category: "1v1 Battle",
-    result: "TOP 7",
-    location: "Melbourne, VIC",
-  },
-  {
-    year: 2025,
-    month: "March",
-    title: "Bounce Back Vol. 2",
-    category: "Battle",
-    result: "TOP 16",
-    location: "Melbourne, VIC",
-  },
-  {
-    year: 2025,
-    month: "April",
-    title: "HHI VIC",
-    category: "Hip Hop International",
-    result: "Gold Medalist",
-    location: "Melbourne, VIC",
-  },
-  {
-    year: 2025,
-    month: "June",
-    title: "Funk Station Vol. 4",
-    category: "Battle",
-    result: "TOP 16",
-    location: "Melbourne, VIC",
-  },
-  {
-    year: 2024,
-    month: "February",
-    title: "Lunar New Year 1V1 Freestyle Battle",
-    category: "1v1 Freestyle",
-    result: "TOP 8",
-    location: "Melbourne, VIC",
-  },
-  {
-    year: 2024,
-    month: "August",
-    title: "LMPB (Last Minute Popping Battle) Vol. 2",
-    category: "2v2 / 1v1",
-    result: "WINNER (2v2) / TOP 16 (1v1)",
-    location: "Melbourne, VIC",
-  },
-  {
-    year: 2023,
-    month: "June",
-    title: "House Round Vol.1 2023",
-    category: "Battle",
-    result: "TOP 10",
-    location: "Melbourne, VIC",
-  },
-  {
-    year: 2022,
-    month: "June",
-    title: "Popping Nation VIC 2022",
-    category: "Team Battle",
-    result: "RUNNER-UP",
-    location: "Melbourne, VIC",
-  },
-  {
-    year: 2022,
-    month: "August",
-    title: "Real Funk Vol.1",
-    category: "1v1",
-    result: "TOP 16",
-    location: "Melbourne, VIC",
-  },
-  {
-    year: 2022,
-    month: "August",
-    title: "Real Funk Vol.1.5",
-    category: "2v2",
-    result: "TOP 8",
-    location: "Melbourne, VIC",
-  },
-  {
-    year: 2022,
-    month: "December",
-    title: "Uni Session",
-    category: "2v2",
-    result: "TOP 16",
-    location: "Melbourne, VIC",
   },
 ];
 
