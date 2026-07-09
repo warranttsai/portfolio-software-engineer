@@ -65,11 +65,28 @@ export const navItems = [
 ];
 
 export const heroImages = {
-  primary: symphonyAwsWorkshop,
-  primaryAlt: "Warrant Tsai with colleagues at a Symphony3 AWS workshop",
   secondary: symphonyTeamPhoto,
   secondaryAlt: "Symphony3 team group photo",
 };
+
+// Auto-advancing hero slideshow — Symphony3 moments front and center.
+export const heroSlides = [
+  {
+    src: symphonyAwsWorkshop,
+    alt: "Warrant Tsai with colleagues at a Symphony3 AWS workshop",
+    title: "Symphony3 AWS Citadel workshop",
+  },
+  {
+    src: symphonyTeamPhoto,
+    alt: "Symphony3 team group photo",
+    title: "Symphony3 team",
+  },
+  {
+    src: symphonyTeamPhotoTwo,
+    alt: "Warrant Tsai with the Symphony3 team",
+    title: "Symphony3 crew",
+  },
+];
 
 export const skills = [
   "React",

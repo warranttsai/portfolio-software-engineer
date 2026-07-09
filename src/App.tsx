@@ -21,6 +21,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { ScrollableGallery } from "@/components/ui/scrollable-gallery";
 import { PreviewImage } from "@/components/ui/preview-image";
+import { HeroSlideshow } from "@/components/ui/hero-slideshow";
 import {
   certifications,
   danceIntro,
@@ -31,6 +32,7 @@ import {
   experience,
   formatDuration,
   heroImages,
+  heroSlides,
   navItems,
   profile,
   projects,
@@ -278,10 +280,8 @@ function App() {
               <div className="relative">
                 <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-ocean/30 to-coral/20 opacity-60 blur-2xl" />
                 <div className="relative rounded-[2rem] border border-white bg-white p-5 soft-shadow">
-                  <PreviewImage
-                    src={heroImages.primary}
-                    alt={heroImages.primaryAlt}
-                    title={heroImages.primaryAlt}
+                  <HeroSlideshow
+                    slides={heroSlides}
                     className="aspect-square rounded-[1.5rem]"
                     overlay={
                       <div className="text-white">
