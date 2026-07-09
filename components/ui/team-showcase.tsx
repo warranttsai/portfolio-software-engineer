@@ -3,13 +3,7 @@ import { AnimatePresence, motion, type Variants } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-
-interface TeamMember {
-  name: string;
-  role: string;
-  imageSrc: string;
-  themeColor: string;
-}
+import type { TeamMember } from "@/types/team";
 
 interface TeamShowcaseProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string;
@@ -120,4 +114,5 @@ const TeamShowcase = React.forwardRef<HTMLDivElement, TeamShowcaseProps>(
 TeamShowcase.displayName = "TeamShowcase";
 
 export { TeamShowcase };
-export type { TeamMember, TeamShowcaseProps };
+export type { TeamShowcaseProps };
+export type { TeamMember } from "@/types/team";

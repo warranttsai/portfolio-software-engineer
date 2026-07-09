@@ -11,16 +11,9 @@ import blackBallLogo from "@/src/assets/career/blackball-logo.jpg";
 import cleanstormwaterLogo from "@/src/assets/career/cleanstormwater-logo.jpg";
 import filaLogo from "@/src/assets/career/fila-logo.jpg";
 import symphony3Logo from "@/src/assets/career/symphony3-logo.png";
+import type { Project } from "@/types/portfolio";
 
-export type Accent = "ocean" | "coral" | "ink";
-
-export type Project = {
-  title: string;
-  description: string;
-  tags: string[];
-  image: string;
-  accent: Accent;
-};
+export type { Accent, Project } from "@/types/portfolio";
 
 export type ExperienceItem = {
   period: string;
