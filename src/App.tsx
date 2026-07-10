@@ -458,14 +458,22 @@ function App() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.04 }}
               >
-                <PreviewImage
-                  src={item.image}
-                  alt={item.alt}
-                  title={item.title}
-                  href={item.href}
-                  className="h-full rounded-3xl soft-shadow-coral"
-                  overlay={<Chip coral>{item.title}</Chip>}
-                />
+                {"images" in item ? (
+                  <HeroSlideshow
+                    slides={item.images}
+                    className="h-full rounded-3xl soft-shadow-coral"
+                    overlay={<Chip coral>{item.title}</Chip>}
+                  />
+                ) : (
+                  <PreviewImage
+                    src={item.image}
+                    alt={item.alt}
+                    title={item.title}
+                    href={item.href}
+                    className="h-full rounded-3xl soft-shadow-coral"
+                    overlay={<Chip coral>{item.title}</Chip>}
+                  />
+                )}
               </motion.div>
             ))}
           </div>
