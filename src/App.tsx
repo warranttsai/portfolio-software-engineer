@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion, type Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   ArrowRight,
   BadgeCheck,
@@ -14,7 +14,6 @@ import {
   Music2,
   Phone,
   Play,
-  Sparkles,
   X,
 } from "lucide-react";
 
@@ -22,6 +21,12 @@ import { Button } from "@/components/ui/button";
 import { ScrollableGallery } from "@/components/ui/scrollable-gallery";
 import { PreviewImage } from "@/components/ui/preview-image";
 import { HeroSlideshow } from "@/components/ui/hero-slideshow";
+import { Chip } from "@/components/ui/chip";
+import { SectionIntro } from "@/components/ui/section-intro";
+import { ProjectGrid } from "@/components/ui/project-grid";
+import { reveal } from "@/lib/animations";
+import type { DataState } from "@/types/data-state";
+import type { Project } from "@/types/portfolio";
 import {
   certifications,
   danceIntro,
@@ -38,72 +43,10 @@ import {
   projects,
   skills,
   socialGallery,
-  type Project,
 } from "@/src/content/portfolio";
 import { cn } from "@/lib/utils";
 
-type DataState<T> =
-  | { status: "loading" }
-  | { status: "empty" }
-  | { status: "error"; message: string }
-  | { status: "ready"; data: T };
-
 const projectState: DataState<Project[]> = { status: "ready", data: projects };
-
-const reveal: Variants = {
-  hidden: { opacity: 0, y: 28 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: [0.2, 0.7, 0.2, 1] },
-  },
-};
-
-function Chip({
-  children,
-  coral = false,
-}: {
-  children: React.ReactNode;
-  coral?: boolean;
-}) {
-  return (
-    <span
-      className={cn(
-        "inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold",
-        coral
-          ? "border-coral/15 bg-coral-soft text-coral-deep"
-          : "border-ocean/15 bg-ocean-soft text-ocean-deep",
-      )}
-    >
-      {children}
-    </span>
-  );
-}
-
-function SectionIntro({
-  chip,
-  title,
-  copy,
-}: {
-  chip: string;
-  title: React.ReactNode;
-  copy: string;
-}) {
-  return (
-    <motion.div
-      variants={reveal}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
-    >
-      <Chip>{chip}</Chip>
-      <h2 className="mt-4 text-4xl font-extrabold leading-tight md:text-5xl">
-        {title}
-      </h2>
-      <p className="mt-3 max-w-xl text-slate-600">{copy}</p>
-    </motion.div>
-  );
-}
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -872,80 +815,6 @@ function App() {
       </a>
 
     </main>
-  );
-}
-
-function ProjectGrid({ state }: { state: DataState<Project[]> }) {
-  if (state.status === "loading") {
-    return (
-      <div className="mt-12 grid gap-6 md:grid-cols-3" aria-label="Loading projects">
-        {[1, 2, 3].map((item) => (
-          <div key={item} className="h-96 animate-pulse rounded-3xl bg-slate-100" />
-        ))}
-      </div>
-    );
-  }
-
-  if (state.status === "error") {
-    return (
-      <div className="mt-12 rounded-3xl border border-coral/20 bg-coral-soft p-8 text-coral-deep">
-        <h3 className="font-bold">Projects could not load</h3>
-        <p className="mt-2 text-sm">{state.message}</p>
-      </div>
-    );
-  }
-
-  if (state.status === "empty") {
-    return (
-      <div className="mt-12 rounded-3xl border border-slate-100 bg-white p-8 text-slate-600 soft-shadow">
-        <h3 className="font-bold text-ink">Projects are being curated</h3>
-        <p className="mt-2 text-sm">
-          Check back soon for case studies with context, outcomes, and source
-          links.
-        </p>
-      </div>
-    );
-  }
-
-  return (
-    <div className="mt-12 grid gap-6 md:grid-cols-3">
-      {state.data.map((project, index) => (
-        <motion.article
-          key={project.title}
-          className="group overflow-hidden rounded-3xl border border-slate-100 bg-white soft-shadow"
-          variants={reveal}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-70px" }}
-          transition={{ delay: index * 0.08 }}
-        >
-          <PreviewImage
-            src={project.image}
-            alt={`${project.title} project preview`}
-            title={project.title}
-            className="aspect-[4/3]"
-            overlay={
-              <Chip coral={project.accent === "coral"}>
-                <Sparkles size={12} /> Case study
-              </Chip>
-            }
-          />
-          <div className="p-6">
-            <h3 className="text-xl font-bold">{project.title}</h3>
-            <p className="mt-3 text-sm leading-6 text-slate-600">
-              {project.description}
-            </p>
-            <div className="mt-5 flex flex-wrap gap-2">
-              {project.tags.map((tag) => (
-                <Chip key={tag} coral={project.accent === "coral"}>
-                  <BadgeCheck size={12} /> {tag}
-                </Chip>
-              ))}
-            </div>
-          </div>
-        </motion.article>
-      ))}
-    </div>
   );
 }
 
