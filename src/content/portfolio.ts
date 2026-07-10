@@ -318,9 +318,10 @@ export type DanceMilestone = {
   title: string;
   description?: string;
   current?: boolean;
-  /** "battle" entries render with category/result/location instead of a description. */
+  /** "battle" entries render with tags/result/location instead of a description. */
   kind?: "milestone" | "battle";
-  category?: string;
+  /** One or more chips describing the battle format/style (e.g. "1v1", "Battle", "Choreo"). */
+  tags?: string[];
   result?: string;
   location?: string;
 };
@@ -357,7 +358,7 @@ export const danceTimeline: DanceMilestone[] = [
     emoji: "🏆",
     title: "Popping Nation VIC 2022 (Team LUGIA)",
     kind: "battle",
-    category: "Team Battle",
+    tags: ["Team Battle", "Popping dance"],
     result: "RUNNER-UP",
     location: "Melbourne, VIC",
   },
@@ -367,7 +368,7 @@ export const danceTimeline: DanceMilestone[] = [
     emoji: "🏆",
     title: "Real Funk Vol.1",
     kind: "battle",
-    category: "1v1",
+    tags: ["1v1", "Battle", "Popping dance"],
     result: "TOP 16",
     location: "Melbourne, VIC",
   },
@@ -377,7 +378,7 @@ export const danceTimeline: DanceMilestone[] = [
     emoji: "🏆",
     title: "Real Funk Vol.1.5",
     kind: "battle",
-    category: "2v2",
+    tags: ["2v2", "Battle", "Popping dance"],
     result: "TOP 8",
     location: "Melbourne, VIC",
   },
@@ -387,7 +388,7 @@ export const danceTimeline: DanceMilestone[] = [
     emoji: "🏆",
     title: "Uni Session",
     kind: "battle",
-    category: "2v2",
+    tags: ["2v2", "Battle", "Freestyle"],
     result: "TOP 16",
     location: "Melbourne, VIC",
   },
@@ -397,7 +398,7 @@ export const danceTimeline: DanceMilestone[] = [
     emoji: "🏆",
     title: "House Round Vol.1 2023",
     kind: "battle",
-    category: "Battle",
+    tags: ["1v1", "House dance", "Battle"],
     result: "TOP 10",
     location: "Melbourne, VIC",
   },
@@ -407,7 +408,7 @@ export const danceTimeline: DanceMilestone[] = [
     emoji: "🏆",
     title: "Lunar New Year 1V1 Freestyle Battle",
     kind: "battle",
-    category: "1v1 Freestyle",
+    tags: ["1v1", "Freestyle", "Battle"],
     result: "TOP 8",
     location: "Melbourne, VIC",
   },
@@ -424,7 +425,7 @@ export const danceTimeline: DanceMilestone[] = [
     emoji: "🏆",
     title: "LMPB (Last Minute Popping Battle) Vol. 2",
     kind: "battle",
-    category: "2v2 / 1v1",
+    tags: ["2v2/1v1", "Popping dance", "Battle"],
     result: "WINNER (2v2) / TOP 16 (1v1)",
     location: "Melbourne, VIC",
   },
@@ -434,7 +435,7 @@ export const danceTimeline: DanceMilestone[] = [
     emoji: "🏆",
     title: "Bounce Back Vol. 2",
     kind: "battle",
-    category: "Battle",
+    tags: ["1v1", "Freestyle", "Battle"],
     result: "TOP 16",
     location: "Melbourne, VIC",
   },
@@ -444,7 +445,7 @@ export const danceTimeline: DanceMilestone[] = [
     emoji: "🥇",
     title: "HHI VIC",
     kind: "battle",
-    category: "Hip Hop International",
+    tags: ["Hip Hop International", "Choreo"],
     result: "Gold Medalist",
     location: "Melbourne, VIC",
   },
@@ -454,7 +455,7 @@ export const danceTimeline: DanceMilestone[] = [
     emoji: "🏆",
     title: "Funk Station Vol. 4",
     kind: "battle",
-    category: "Battle",
+    tags: ["1v1", "Locking dance"],
     result: "TOP 16",
     location: "Melbourne, VIC",
   },
@@ -464,7 +465,7 @@ export const danceTimeline: DanceMilestone[] = [
     emoji: "🏆",
     title: "BTTB Vol. 4 (7 to Smoke)",
     kind: "battle",
-    category: "1v1 Battle",
+    tags: ["1v1", "Freestyle", "Battle"],
     result: "TOP 7",
     location: "Melbourne, VIC",
   },

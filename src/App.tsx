@@ -617,7 +617,9 @@ function App() {
                       </div>
                       {milestone.kind === "battle" ? (
                         <div className="mt-4 flex flex-wrap gap-2">
-                          {milestone.category ? <Chip>{milestone.category}</Chip> : null}
+                          {milestone.tags?.map((tag) => (
+                            <Chip key={tag}>{tag}</Chip>
+                          ))}
                           {milestone.result ? <Chip coral>{milestone.result}</Chip> : null}
                           {milestone.location ? (
                             <span className="inline-flex items-center text-xs text-slate-400">
