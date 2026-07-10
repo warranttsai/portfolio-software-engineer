@@ -65,11 +65,28 @@ export const navItems = [
 ];
 
 export const heroImages = {
-  primary: symphonyAwsWorkshop,
-  primaryAlt: "Warrant Tsai with colleagues at a Symphony3 AWS workshop",
   secondary: symphonyTeamPhoto,
   secondaryAlt: "Symphony3 team group photo",
 };
+
+// Auto-advancing hero slideshow — Symphony3 moments front and center.
+export const heroSlides = [
+  {
+    src: symphonyAwsWorkshop,
+    alt: "Warrant Tsai with colleagues at a Symphony3 AWS workshop",
+    title: "Symphony3 AWS Citadel workshop",
+  },
+  {
+    src: symphonyTeamPhoto,
+    alt: "Symphony3 team group photo",
+    title: "Symphony3 team",
+  },
+  {
+    src: symphonyTeamPhotoTwo,
+    alt: "Warrant Tsai with the Symphony3 team",
+    title: "Symphony3 crew",
+  },
+];
 
 export const skills = [
   "React",
@@ -255,6 +272,10 @@ export const socialGallery = [
 // -- Street dance ---------------------------------------------------------
 
 // Eagerly import every showcase image so the gallery stays data-driven.
+const deepSlymeVol1Images = import.meta.glob(
+  "../assets/social-media/deep-slyme-vol1-showcase/*.{png,jpg,jpeg,PNG,JPG,JPEG}",
+  { eager: true, import: "default" },
+) as Record<string, string>;
 const deepSlymeImages = import.meta.glob(
   "../assets/social-media/deep-slyme-vol2-showcase/*.{png,jpg,jpeg}",
   { eager: true, import: "default" },
@@ -265,6 +286,14 @@ const emotionShowcaseImages = import.meta.glob(
 ) as Record<string, string>;
 const hhiImages = import.meta.glob(
   "../assets/social-media/hhi-2025/*.{png,jpg,jpeg}",
+  { eager: true, import: "default" },
+) as Record<string, string>;
+const indigoBlueNanakaImages = import.meta.glob(
+  "../assets/social-media/indigo-blue-nanaka-team-showcase/*.{png,jpg,jpeg}",
+  { eager: true, import: "default" },
+) as Record<string, string>;
+const ixagOpenStyleBattleImages = import.meta.glob(
+  "../assets/social-media/ixag-open-style-battle/*.{png,jpg,jpeg}",
   { eager: true, import: "default" },
 ) as Record<string, string>;
 
@@ -289,9 +318,10 @@ export type DanceMilestone = {
   title: string;
   description?: string;
   current?: boolean;
-  /** "battle" entries render with category/result/location instead of a description. */
+  /** "battle" entries render with tags/result/location instead of a description. */
   kind?: "milestone" | "battle";
-  category?: string;
+  /** One or more chips describing the battle format/style (e.g. "1v1", "Battle", "Choreo"). */
+  tags?: string[];
   result?: string;
   location?: string;
 };
@@ -328,7 +358,7 @@ export const danceTimeline: DanceMilestone[] = [
     emoji: "🏆",
     title: "Popping Nation VIC 2022 (Team LUGIA)",
     kind: "battle",
-    category: "Team Battle",
+    tags: ["Team Battle", "Popping dance"],
     result: "RUNNER-UP",
     location: "Melbourne, VIC",
   },
@@ -338,7 +368,7 @@ export const danceTimeline: DanceMilestone[] = [
     emoji: "🏆",
     title: "Real Funk Vol.1",
     kind: "battle",
-    category: "1v1",
+    tags: ["1v1", "Battle", "Popping dance"],
     result: "TOP 16",
     location: "Melbourne, VIC",
   },
@@ -348,7 +378,7 @@ export const danceTimeline: DanceMilestone[] = [
     emoji: "🏆",
     title: "Real Funk Vol.1.5",
     kind: "battle",
-    category: "2v2",
+    tags: ["2v2", "Battle", "Popping dance"],
     result: "TOP 8",
     location: "Melbourne, VIC",
   },
@@ -358,7 +388,7 @@ export const danceTimeline: DanceMilestone[] = [
     emoji: "🏆",
     title: "Uni Session",
     kind: "battle",
-    category: "2v2",
+    tags: ["2v2", "Battle", "Freestyle"],
     result: "TOP 16",
     location: "Melbourne, VIC",
   },
@@ -368,7 +398,7 @@ export const danceTimeline: DanceMilestone[] = [
     emoji: "🏆",
     title: "House Round Vol.1 2023",
     kind: "battle",
-    category: "Battle",
+    tags: ["1v1", "House dance", "Battle"],
     result: "TOP 10",
     location: "Melbourne, VIC",
   },
@@ -378,7 +408,7 @@ export const danceTimeline: DanceMilestone[] = [
     emoji: "🏆",
     title: "Lunar New Year 1V1 Freestyle Battle",
     kind: "battle",
-    category: "1v1 Freestyle",
+    tags: ["1v1", "Freestyle", "Battle"],
     result: "TOP 8",
     location: "Melbourne, VIC",
   },
@@ -395,7 +425,7 @@ export const danceTimeline: DanceMilestone[] = [
     emoji: "🏆",
     title: "LMPB (Last Minute Popping Battle) Vol. 2",
     kind: "battle",
-    category: "2v2 / 1v1",
+    tags: ["2v2/1v1", "Popping dance", "Battle"],
     result: "WINNER (2v2) / TOP 16 (1v1)",
     location: "Melbourne, VIC",
   },
@@ -405,7 +435,7 @@ export const danceTimeline: DanceMilestone[] = [
     emoji: "🏆",
     title: "Bounce Back Vol. 2",
     kind: "battle",
-    category: "Battle",
+    tags: ["1v1", "Freestyle", "Battle"],
     result: "TOP 16",
     location: "Melbourne, VIC",
   },
@@ -415,7 +445,7 @@ export const danceTimeline: DanceMilestone[] = [
     emoji: "🥇",
     title: "HHI VIC",
     kind: "battle",
-    category: "Hip Hop International",
+    tags: ["Hip Hop International", "Choreo"],
     result: "Gold Medalist",
     location: "Melbourne, VIC",
   },
@@ -425,7 +455,7 @@ export const danceTimeline: DanceMilestone[] = [
     emoji: "🏆",
     title: "Funk Station Vol. 4",
     kind: "battle",
-    category: "Battle",
+    tags: ["1v1", "Locking dance"],
     result: "TOP 16",
     location: "Melbourne, VIC",
   },
@@ -435,7 +465,7 @@ export const danceTimeline: DanceMilestone[] = [
     emoji: "🏆",
     title: "BTTB Vol. 4 (7 to Smoke)",
     kind: "battle",
-    category: "1v1 Battle",
+    tags: ["1v1", "Freestyle", "Battle"],
     result: "TOP 7",
     location: "Melbourne, VIC",
   },
@@ -452,7 +482,7 @@ export const danceTimeline: DanceMilestone[] = [
 export const danceShowcases: DanceShowcase[] = [
   {
     title: "Emotion Dance Studio Guest Showcase",
-    year: "2026",
+    year: "June 2026",
     blurb:
       "Invited as a guest performer for Emotion Dance Studio's 2026 showcase.",
     images: sortedImages(emotionShowcaseImages).map((src, index) => ({
@@ -461,8 +491,37 @@ export const danceShowcases: DanceShowcase[] = [
     })),
   },
   {
+    title: "Deep Slyme Vol.2",
+    year: "April 2026",
+    blurb: "Performance moments from the Deep Slyme Vol.2 showcase.",
+    images: sortedImages(deepSlymeImages).map((src, index) => ({
+      src,
+      alt: `Deep Slyme Vol.2 showcase performance ${index + 1}`,
+    })),
+  },
+  // IXAG Open Style Battle: a small 3-on-3 crew battle. We placed rank 4 out
+  // of 5 crews, so there's no award/result to list for this one.
+  {
+    title: "IXAG Open Style Battle",
+    year: "December 2025",
+    blurb: "A small 3-on-3 open style crew battle at IXAG.",
+    images: sortedImages(ixagOpenStyleBattleImages).map((src, index) => ({
+      src,
+      alt: `IXAG Open Style Battle performance ${index + 1}`,
+    })),
+  },
+  {
+    title: "Deep Slyme Vol.1",
+    year: "November 2025",
+    blurb: "Performance moments from the Deep Slyme Vol.1 showcase.",
+    images: sortedImages(deepSlymeVol1Images).map((src, index) => ({
+      src,
+      alt: `Deep Slyme Vol.1 showcase performance ${index + 1}`,
+    })),
+  },
+  {
     title: "Hip Hop International",
-    year: "2025",
+    year: "April 2025",
     blurb: "On stage for the Hip Hop International 2025 competition.",
     images: sortedImages(hhiImages).map((src, index) => ({
       src,
@@ -470,11 +529,12 @@ export const danceShowcases: DanceShowcase[] = [
     })),
   },
   {
-    title: "Deep Slyme Vol.2",
-    blurb: "Performance moments from the Deep Slyme Vol.2 showcase.",
-    images: sortedImages(deepSlymeImages).map((src, index) => ({
+    title: "Indigo Blue x Nanaka Team Showcase",
+    year: "January 2025",
+    blurb: "Team showcase performance alongside Indigo Blue and Nanaka.",
+    images: sortedImages(indigoBlueNanakaImages).map((src, index) => ({
       src,
-      alt: `Deep Slyme Vol.2 showcase performance ${index + 1}`,
+      alt: `Indigo Blue x Nanaka team showcase performance ${index + 1}`,
     })),
   },
 ];
