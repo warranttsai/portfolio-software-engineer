@@ -2,7 +2,9 @@ import cloudOpsCertificate from "@/src/assets/aws/aws-certified-cloudops-enginee
 import cloudPractitionerCertificate from "@/src/assets/aws/aws-certified-cloud-practitioner-certificate.png";
 import solutionsArchitectCertificate from "@/src/assets/aws/aws-certified-solutions-architect-associate-certificate.png";
 import instagramScreenshot from "@/src/assets/social-media/warrant-mr-kaeru-ins-main-page-ss.png";
-import symphonyAwsWorkshop from "@/src/assets/symphony3/aws-citadel-ws.jpg";
+import awsCitadelWorkshop from "@/src/assets/aws/ws/aws-citadel.jpg";
+import awsAgentCoreWorkshopOne from "@/src/assets/aws/ws/aws-intro-to-rag-with-amazon-agentcore-1.png";
+import awsAgentCoreWorkshopTwo from "@/src/assets/aws/ws/aws-intro-to-rag-with-amazon-agentcore-2.png";
 import symphonyTeamPhoto from "@/src/assets/symphony3/group-photo-1.jpg";
 import symphonyTeamPhotoTwo from "@/src/assets/symphony3/group-photo-2.jpg";
 import foGuangShanOne from "@/src/assets/volunteering/2026-fo-guang-shan/1.jpg";
@@ -72,7 +74,7 @@ export const heroImages = {
 // Auto-advancing hero slideshow — Symphony3 moments front and center.
 export const heroSlides = [
   {
-    src: symphonyAwsWorkshop,
+    src: awsCitadelWorkshop,
     alt: "Warrant Tsai with colleagues at a Symphony3 AWS workshop",
     title: "Symphony3 AWS Citadel workshop",
   },
@@ -238,8 +240,25 @@ export const socialGallery = [
   },
   {
     title: "AWS workshop",
-    image: symphonyAwsWorkshop,
-    alt: "Warrant Tsai at an AWS workshop",
+    // Multiple workshop photos — rendered as a mini slideshow instead of a
+    // single static photo.
+    images: [
+      {
+        src: awsCitadelWorkshop,
+        alt: "Warrant Tsai with colleagues at the Symphony3 AWS Citadel workshop",
+        title: "Symphony3 AWS Citadel workshop",
+      },
+      {
+        src: awsAgentCoreWorkshopOne,
+        alt: "Warrant Tsai at the Intro to RAG with Amazon Bedrock AgentCore workshop",
+        title: "Intro to RAG with Amazon Bedrock AgentCore",
+      },
+      {
+        src: awsAgentCoreWorkshopTwo,
+        alt: "Hands-on session at the Intro to RAG with Amazon Bedrock AgentCore workshop",
+        title: "Intro to RAG with Amazon Bedrock AgentCore",
+      },
+    ],
     href: profile.citadelWorkshopPostUrl,
   },
   {
