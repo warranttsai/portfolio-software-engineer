@@ -157,18 +157,6 @@ function App() {
                   rx="270"
                   ry="100"
                 />
-                <path
-                  className="hero-water-wave hero-water-wave-back"
-                  d="M-120 285 C80 210 270 365 500 285 S920 205 1120 290"
-                />
-                <path
-                  className="hero-water-wave hero-water-wave-middle"
-                  d="M-120 335 C110 255 290 405 520 330 S900 250 1120 340"
-                />
-                <path
-                  className="hero-water-wave hero-water-wave-front"
-                  d="M-120 390 C100 320 300 455 540 380 S900 305 1120 395"
-                />
                 <ellipse
                   className="hero-water-impact"
                   cx="500"
