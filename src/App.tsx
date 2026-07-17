@@ -173,13 +173,7 @@ function App() {
               </svg>
             </div>
             <div className="relative z-10 grid items-center gap-10 md:grid-cols-12">
-              <motion.div
-                className="md:col-span-7"
-                variants={reveal}
-                initial="hidden"
-                animate="visible"
-                transition={{ delay: 1.2 }}
-              >
+              <div className="md:col-span-7">
                 <span className="hero-late-status inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-600 soft-shadow">
                   <span className="size-2 rounded-full bg-ocean" />
                   {profile.heroStatus} · {profile.location}
@@ -268,21 +262,15 @@ function App() {
                     {profile.contactLabel}
                   </a>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div
-                className="md:col-span-5"
-                variants={reveal}
-                initial="hidden"
-                animate="visible"
-                transition={{ delay: 1.35 }}
-              >
+              <div className="md:col-span-5">
                 <div className="hero-late-gallery relative">
                   <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-ocean/30 to-coral/20 opacity-60 blur-2xl" />
                   <div className="relative rounded-[2rem] border border-white bg-white p-5 soft-shadow">
                     <HeroSlideshow
                       slides={heroSlides}
-                      className="aspect-square rounded-[1.5rem]"
+                      className="hero-gallery-top aspect-square rounded-[1.5rem]"
                       overlay={
                         <div className="text-white">
                           <div className="text-xs font-semibold uppercase tracking-widest text-white/80">
@@ -301,7 +289,7 @@ function App() {
                       src={heroImages.secondary}
                       alt={heroImages.secondaryAlt}
                       title={heroImages.secondaryAlt}
-                      className="mt-3 h-24 rounded-[1.25rem] md:h-28"
+                      className="hero-gallery-bottom mt-3 h-24 rounded-[1.25rem] md:h-28"
                     />
                     <div className="absolute -left-4 top-10 rounded-2xl border border-slate-100 bg-white px-4 py-3 soft-shadow">
                       <div className="text-2xl font-extrabold text-ocean">3x</div>
@@ -317,7 +305,7 @@ function App() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
 

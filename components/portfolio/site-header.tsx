@@ -16,7 +16,7 @@ export function SiteHeader({
   onCloseMenu,
 }: SiteHeaderProps) {
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
+    <header className="hero-scheduled-header fixed inset-x-0 top-0 z-50">
       <div className="mx-auto mt-4 max-w-6xl px-5">
         <nav className="flex items-center justify-between rounded-2xl border border-white/70 bg-white/85 px-4 py-3 backdrop-blur-md soft-shadow">
           <a
