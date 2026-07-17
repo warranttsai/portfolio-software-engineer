@@ -205,7 +205,7 @@ export function HeroSection() {
                         </div>
                     </div>
                 </div>
-                <div className="mt-16 overflow-hidden border-y border-slate-100 py-4">
+                <div className="hero-late-marquee mt-16 overflow-hidden border-y border-slate-100 py-4">
                     <div className="marquee-track flex w-max gap-10 text-sm font-semibold uppercase tracking-[0.25em] text-slate-400">
                         {skills.concat(skills).map((item, index) => (
                             <span key={`${item}-${index}`}>{item}</span>

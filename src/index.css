@@ -223,7 +223,8 @@
   animation-delay: 1.3s;
 }
 
-.hero-scheduled-header {
+.hero-scheduled-header,
+.hero-late-marquee {
   opacity: 0;
   animation: hero-copy-intro-reveal 0.2s cubic-bezier(0.22, 0.61, 0.36, 1)
     1.8s both;
@@ -326,7 +327,8 @@
   .hero-late-gallery,
   .hero-gallery-top,
   .hero-gallery-bottom,
-  .hero-scheduled-header {
+  .hero-scheduled-header,
+  .hero-late-marquee {
     opacity: 1;
     transform: none;
   }
