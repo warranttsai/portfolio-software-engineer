@@ -1,9 +1,9 @@
 import { Music2 } from "lucide-react";
 import { motion } from "framer-motion";
 
-import { Chip } from "@/components/ui/chip";
-import { ScrollableGallery } from "@/components/ui/scrollable-gallery";
-import { SectionIntro } from "@/components/ui/section-intro";
+import { Chip } from "@/src/components/ui/chip";
+import { ScrollableGallery } from "@/src/components/ui/scrollable-gallery";
+import { SectionIntro } from "@/src/components/ui/section-intro";
 import { reveal } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 import {

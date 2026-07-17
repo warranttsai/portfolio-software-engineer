@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 
-import { PreviewImage } from "./preview-image";
+import { PreviewImage } from "@/src/components/ui/preview-image";
 
 type ScrollableGalleryProps = {
   images: { src: string; alt: string; title?: string }[];

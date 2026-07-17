@@ -1,5 +1,5 @@
-import { ProjectGrid } from "@/components/ui/project-grid";
-import { SectionIntro } from "@/components/ui/section-intro";
+import { ProjectGrid } from "@/src/components/ui/project-grid";
+import { SectionIntro } from "@/src/components/ui/section-intro";
 import type { DataState } from "@/types/data-state";
 import type { Project } from "@/types/portfolio";
 import { projects } from "@/src/content/portfolio";

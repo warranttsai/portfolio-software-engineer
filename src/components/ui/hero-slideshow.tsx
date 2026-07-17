@@ -3,7 +3,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { ImageModal, type ImageModalData } from "./image-modal";
+import {
+  ImageModal,
+  type ImageModalData,
+} from "@/src/components/ui/image-modal";
 
 export type HeroSlide = {
   src: string;

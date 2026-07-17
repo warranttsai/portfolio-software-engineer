@@ -1,10 +1,10 @@
 import { Instagram, Play } from "lucide-react";
 import { motion } from "framer-motion";
 
-import { Button } from "@/components/ui/button";
-import { Chip } from "@/components/ui/chip";
-import { HeroSlideshow } from "@/components/ui/hero-slideshow";
-import { PreviewImage } from "@/components/ui/preview-image";
+import { Button } from "@/src/components/ui/button";
+import { Chip } from "@/src/components/ui/chip";
+import { HeroSlideshow } from "@/src/components/ui/hero-slideshow";
+import { PreviewImage } from "@/src/components/ui/preview-image";
 import { reveal } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 import { profile, socialGallery } from "@/src/content/portfolio";

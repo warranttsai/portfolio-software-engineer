@@ -2,7 +2,7 @@ import { useState, type ReactNode } from "react";
 import { ExternalLink, Maximize2 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { ImageModal } from "./image-modal";
+import { ImageModal } from "@/src/components/ui/image-modal";
 
 type PreviewImageProps = {
   src: string;

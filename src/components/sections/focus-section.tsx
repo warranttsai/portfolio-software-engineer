@@ -1,6 +1,6 @@
 import { BadgeCheck } from "lucide-react";
 
-import { Chip } from "@/components/ui/chip";
+import { Chip } from "@/src/components/ui/chip";
 import { SectionToggleButton } from "@/src/components/sections/section-toggle-button";
 
 type SectionProps = {

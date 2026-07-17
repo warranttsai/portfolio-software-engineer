@@ -1,8 +1,8 @@
 import { ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 
-import { Chip } from "@/components/ui/chip";
-import { SectionIntro } from "@/components/ui/section-intro";
+import { Chip } from "@/src/components/ui/chip";
+import { SectionIntro } from "@/src/components/ui/section-intro";
 import { reveal } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 import { experience } from "@/src/content/portfolio";

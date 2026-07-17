@@ -1,8 +1,8 @@
 import { ArrowRight, Github, Instagram, Linkedin, Music2 } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
-import { HeroSlideshow } from "@/components/ui/hero-slideshow";
-import { PreviewImage } from "@/components/ui/preview-image";
+import { Button } from "@/src/components/ui/button";
+import { HeroSlideshow } from "@/src/components/ui/hero-slideshow";
+import { PreviewImage } from "@/src/components/ui/preview-image";
 import { cn } from "@/lib/utils";
 import { heroImages, heroSlides, profile, skills } from "@/src/content/portfolio";
 

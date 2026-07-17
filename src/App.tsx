@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { ChevronUp } from "lucide-react";
 
-import { SiteFooter } from "@/components/portfolio/site-footer";
-import { SiteHeader } from "@/components/portfolio/site-header";
+import { SiteFooter } from "@/src/components/portfolio/site-footer";
+import { SiteHeader } from "@/src/components/portfolio/site-header";
 import { CertificationsSection } from "@/src/components/sections/certifications-section";
 import { DanceSection } from "@/src/components/sections/dance-section";
 import { ExperienceSection } from "@/src/components/sections/experience-section";

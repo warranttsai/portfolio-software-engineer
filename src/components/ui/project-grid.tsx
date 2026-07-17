@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import { reveal } from "@/lib/animations";
 import type { DataState } from "@/types/data-state";
 import type { Project } from "@/types/portfolio";
-import { Chip } from "./chip";
-import { PreviewImage } from "./preview-image";
+import { Chip } from "@/src/components/ui/chip";
+import { PreviewImage } from "@/src/components/ui/preview-image";
 
 type ProjectGridProps = {
   state: DataState<Project[]>;

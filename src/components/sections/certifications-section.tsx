@@ -1,7 +1,7 @@
 import { Award } from "lucide-react";
 
-import { PreviewImage } from "@/components/ui/preview-image";
-import { SectionIntro } from "@/components/ui/section-intro";
+import { PreviewImage } from "@/src/components/ui/preview-image";
+import { SectionIntro } from "@/src/components/ui/section-intro";
 import { certifications } from "@/src/content/portfolio";
 import { SectionToggleButton } from "@/src/components/sections/section-toggle-button";
 

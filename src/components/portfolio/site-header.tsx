@@ -1,6 +1,6 @@
 import { Menu, X } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/src/components/ui/button";
 import { cn } from "@/lib/utils";
 import { navItems, profile } from "@/src/content/portfolio";
 

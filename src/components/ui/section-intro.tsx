@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 
 import { reveal } from "@/lib/animations";
-import { Chip } from "./chip";
+import { Chip } from "@/src/components/ui/chip";
 
 type SectionIntroProps = {
   chip: string;
