@@ -2,7 +2,7 @@ import * as React from "react";
 import { AnimatePresence, motion, type Variants } from "framer-motion";
 
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/src/components/ui/button";
 import type { TeamMember } from "@/types/team";
 
 interface TeamShowcaseProps extends React.HTMLAttributes<HTMLDivElement> {

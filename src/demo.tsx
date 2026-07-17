@@ -1,4 +1,4 @@
-import { TeamShowcase, type TeamMember } from "@/components/ui/team-showcase";
+import { TeamShowcase, type TeamMember } from "@/src/components/ui/team-showcase";
 
 const developers: TeamMember[] = [
   {

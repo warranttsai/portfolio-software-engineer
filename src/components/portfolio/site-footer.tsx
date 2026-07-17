@@ -7,7 +7,7 @@ import {
   Phone,
 } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/src/components/ui/button";
 import { navItems, profile } from "@/src/content/portfolio";
 
 export function SiteFooter() {

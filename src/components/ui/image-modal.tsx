@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "./button";
+import { Button } from "@/src/components/ui/button";
 import { X } from "lucide-react";
 
 export type ImageModalData = {
