@@ -106,7 +106,24 @@ export const skills = [
 
 export const experience: ExperienceItem[] = [
   {
-    period: "May 2024 - Present",
+    period: "Aug 2026 - Present",
+    role: "DevOps Engineer",
+    company: "Symphony3",
+    employmentType: "Full-time",
+    location: "Melbourne, Victoria, Australia",
+    locationType: "Hybrid",
+    mark: "S3",
+    logo: symphony3Logo,
+    bullets: [
+      "Transitioned from Associate Engineer into a dedicated DevOps role, focused on infrastructure, deployment pipelines, and cloud operations.",
+      "Managed infrastructure maintenance and deployment workflows across AWS, Upsun, and cPanel to support reliable code delivery.",
+      "Analyzed cloud resource usage, identified inefficiencies, and right-sized environments to reduce operational overhead.",
+      "Led technical integration work connecting platforms and services into unified, high-performance workflows.",
+    ],
+    skills: ["AWS", "CI/CD", "Upsun", "cPanel", "Cloud Infrastructure", "Systems Integration", "React", "Python"],
+  },
+  {
+    period: "May 2024 - Aug 2026",
     role: "Associate Engineer",
     company: "Symphony3",
     employmentType: "Full-time",
@@ -119,8 +136,10 @@ export const experience: ExperienceItem[] = [
       "Managed infrastructure maintenance and deployment workflows across AWS, Upsun, and cPanel to support reliable code delivery.",
       "Analyzed cloud resource usage, identified inefficiencies, and right-sized environments to reduce operational overhead.",
       "Led technical integration work connecting platforms and services into unified, high-performance workflows.",
+      "Built a client call centre on Amazon Connect handling 30+ calls daily, including a voicemail feature, sustaining strong feedback and performance over several years in production.",
+      "Delivered an AI agent integration for client infringement review using AWS Bedrock AgentCore, CodeBuild, S3, Lambda, and EventBridge, cutting daily review time from several hours to under one hour.",
     ],
-    skills: ["React", "JavaScript", "Java", "Python", "C#", "AWS", "Upsun", "cPanel", "Systems Integration"],
+    skills: ["React", "JavaScript", "Java", "Python", "C#", "AWS", "Amazon Connect", "Bedrock AgentCore", "Lambda", "EventBridge", "CodeBuild", "S3", "Upsun", "cPanel", "Systems Integration"],
   },
   {
     period: "Jan 2023 - Dec 2025",
@@ -486,6 +505,16 @@ export const danceTimeline: DanceMilestone[] = [
     kind: "battle",
     tags: ["1v1", "Freestyle", "Battle"],
     result: "TOP 7",
+    location: "Melbourne, VIC",
+  },
+  {
+    date: "2026-08-09",
+    label: "August 9, 2026",
+    emoji: "🏆",
+    title: "Undefined - X Dance Station",
+    kind: "battle",
+    tags: ["1v1", "Freestyle", "Battle"],
+    result: "TOP 32",
     location: "Melbourne, VIC",
   },
   {
