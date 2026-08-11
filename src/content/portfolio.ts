@@ -138,8 +138,10 @@ export const experience: ExperienceItem[] = [
       "Led technical integration work connecting platforms and services into unified, high-performance workflows.",
       "Built a client call centre on Amazon Connect handling 30+ calls daily, including a voicemail feature, sustaining strong feedback and performance over several years in production.",
       "Delivered an AI agent integration for client infringement review using AWS Bedrock AgentCore, CodeBuild, S3, Lambda, and EventBridge, cutting daily review time from several hours to under one hour.",
+      "Integrated IFS with PDF Generator API and SMTP to automate document generation and email delivery workflows.",
+      "Built SmartGlue, a client-facing integration transaction tracking tool with a user-friendly UI and username/password login, using React (Vite) and .NET, deployed on AWS Amplify and ECS with an RDS database.",
     ],
-    skills: ["React", "JavaScript", "Java", "Python", "C#", "AWS", "Amazon Connect", "Bedrock AgentCore", "Lambda", "EventBridge", "CodeBuild", "S3", "Upsun", "cPanel", "Systems Integration"],
+    skills: ["React", "JavaScript", "Java", "Python", "C#", ".NET", "AWS", "Amazon Connect", "Bedrock AgentCore", "Lambda", "EventBridge", "CodeBuild", "S3", "AWS Amplify", "ECS", "RDS", "IFS", "PDF Generator API", "SMTP", "Upsun", "cPanel", "Systems Integration"],
   },
   {
     period: "Jan 2023 - Dec 2025",
