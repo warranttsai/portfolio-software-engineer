@@ -379,7 +379,7 @@ export default function Smooth3DSlideshow(props: Smooth3DSlideshowProps) {
     )
 }
 
-const COMPONENT_DEFAULTS = {
+const COMPONENT_DEFAULTS: Smooth3DSlideshowProps = {
     slides: [
         {
             image: {
