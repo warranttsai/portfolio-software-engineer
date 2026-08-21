@@ -99,10 +99,10 @@ export function ExperienceSection({ collapsed, onToggle }: SectionProps) {
                                                 </div>
                                             </div>
                                             <ul className="mt-4 space-y-2 text-sm text-slate-600">
-                                                {item.bullets.map((bullet) => (
-                                                    <li key={bullet} className="flex gap-2">
+                                                {item.bullets.map((bullet, bulletIndex) => (
+                                                    <li key={`${item.company}-${bulletIndex}`} className="flex gap-2">
                                                         <span className="text-ocean">▸</span>
-                                                        <span>{bullet}</span>
+                                                        <span dangerouslySetInnerHTML={{ __html: bullet }} />
                                                     </li>
                                                 ))}
                                             </ul>

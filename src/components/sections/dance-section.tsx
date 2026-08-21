@@ -1,8 +1,8 @@
 import { Music2 } from "lucide-react";
 import { motion } from "framer-motion";
 
+import Smooth3DSlideshow from "@/src/components/originkit/ui/coverflowgallery";
 import { Chip } from "@/src/components/ui/chip";
-import { ScrollableGallery } from "@/src/components/ui/scrollable-gallery";
 import { SectionIntro } from "@/src/components/ui/section-intro";
 import { reveal } from "@/lib/animations";
 import { cn } from "@/lib/utils";
@@ -190,10 +190,18 @@ export function DanceSection({
                                     <p className="mt-2 max-w-2xl text-slate-600">
                                         {showcase.blurb}
                                     </p>
-                                    <div className="mt-6">
-                                        <ScrollableGallery
-                                            images={showcase.images}
-                                            label={showcase.title}
+                                    <div className="mt-6 h-[360px] md:h-[430px]">
+                                        <Smooth3DSlideshow
+                                            slides={showcase.images.map((image, index) => ({
+                                                image,
+                                                title: `${showcase.title} ${index + 1}`,
+                                            }))}
+                                            cardWidth={300}
+                                            cardHeight={400}
+                                            radius={2}
+                                            gap={4}
+                                            opacity={70}
+                                            showTitle={false}
                                         />
                                     </div>
                                 </motion.div>
