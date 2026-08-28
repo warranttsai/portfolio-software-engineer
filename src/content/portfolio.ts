@@ -106,7 +106,18 @@ export const skills = [
 
 export const experience: ExperienceItem[] = [
   {
-    period: "May 2024 - Present",
+    period: "July 2026 - Present",
+    role: "DevOps",
+    company: "Symphony3",
+    employmentType: "Full-time",
+    location: "Melbourne, Victoria, Australia",
+    locationType: "Hybrid",
+    mark: "S3",
+    logo: symphony3Logo,
+    bullets: [],
+  },
+  {
+    period: "May 2024 - July 2026",
     role: "Associate Engineer",
     company: "Symphony3",
     employmentType: "Full-time",

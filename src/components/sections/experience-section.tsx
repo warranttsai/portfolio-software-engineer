@@ -96,6 +96,9 @@ export function ExperienceSection({ collapsed, onToggle }: SectionProps) {
                                                     <div className="mt-0.5 text-xs text-slate-400">
                                                         {item.location} · {item.locationType}
                                                     </div>
+                                                    <div className="mt-1 text-xs font-medium text-ocean">
+                                                        Timeline: {item.period}
+                                                    </div>
                                                 </div>
                                             </div>
                                             <ul className="mt-4 space-y-2 text-sm text-slate-600">
