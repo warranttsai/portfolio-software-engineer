@@ -3,6 +3,7 @@ import { ChevronUp } from "lucide-react";
 
 import { SiteFooter } from "@/src/components/portfolio/site-footer";
 import { SiteHeader } from "@/src/components/portfolio/site-header";
+import { SmoothScroll } from "@/src/components/ui/smooth-scroll";
 import { CertificationsSection } from "@/src/components/sections/certifications-section";
 import { DanceSection } from "@/src/components/sections/dance-section";
 import { ExperienceSection } from "@/src/components/sections/experience-section";
@@ -43,57 +44,59 @@ function App() {
   };
 
   return (
-    <main className="overflow-x-hidden bg-paper">
-      <SiteHeader
-        menuOpen={menuOpen}
-        onToggleMenu={() => setMenuOpen((open) => !open)}
-        onCloseMenu={() => setMenuOpen(false)}
-      />
-      <HeroSection />
-      <svg
-        viewBox="0 0 1440 80"
-        preserveAspectRatio="none"
-        className="block h-20 w-full fill-ocean-soft"
-      >
-        <path d="M0,40 C240,90 480,0 720,30 C960,60 1200,10 1440,40 L1440,80 L0,80 Z" />
-      </svg>
-      <ExperienceSection
-        collapsed={Boolean(collapsedSections.experience)}
-        onToggle={() => toggleSection("experience")}
-      />
-      <ProjectsSection
-        collapsed={Boolean(collapsedSections.projects)}
-        onToggle={() => toggleSection("projects")}
-      />
-      <SocialSection
-        collapsed={Boolean(collapsedSections.social)}
-        onToggle={() => toggleSection("social")}
-      />
-      <DanceSection
-        collapsed={Boolean(collapsedSections.dance)}
-        onToggle={() => toggleSection("dance")}
-        now={now}
-        danceStart={danceStart}
-        danceExperience={danceExperience}
-      />
-      <CertificationsSection
-        collapsed={Boolean(collapsedSections.certifications)}
-        onToggle={() => toggleSection("certifications")}
-      />
-      <FocusSection
-        collapsed={Boolean(collapsedSections.focus)}
-        onToggle={() => toggleSection("focus")}
-      />
-      <SiteFooter />
-      <a
-        href="#top"
-        aria-label="Back to top"
-        title="Back to top"
-        className="fixed bottom-5 right-5 z-50 grid size-12 place-items-center rounded-2xl bg-ocean text-white shadow-lg shadow-ocean/30 transition hover:-translate-y-1 hover:bg-ocean-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-4"
-      >
-        <ChevronUp size={22} />
-      </a>
-    </main>
+    <SmoothScroll>
+      <main className="overflow-x-hidden bg-paper">
+        <SiteHeader
+          menuOpen={menuOpen}
+          onToggleMenu={() => setMenuOpen((open) => !open)}
+          onCloseMenu={() => setMenuOpen(false)}
+        />
+        <HeroSection />
+        <svg
+          viewBox="0 0 1440 80"
+          preserveAspectRatio="none"
+          className="block h-20 w-full fill-ocean-soft"
+        >
+          <path d="M0,40 C240,90 480,0 720,30 C960,60 1200,10 1440,40 L1440,80 L0,80 Z" />
+        </svg>
+        <ExperienceSection
+          collapsed={Boolean(collapsedSections.experience)}
+          onToggle={() => toggleSection("experience")}
+        />
+        <ProjectsSection
+          collapsed={Boolean(collapsedSections.projects)}
+          onToggle={() => toggleSection("projects")}
+        />
+        <SocialSection
+          collapsed={Boolean(collapsedSections.social)}
+          onToggle={() => toggleSection("social")}
+        />
+        <DanceSection
+          collapsed={Boolean(collapsedSections.dance)}
+          onToggle={() => toggleSection("dance")}
+          now={now}
+          danceStart={danceStart}
+          danceExperience={danceExperience}
+        />
+        <CertificationsSection
+          collapsed={Boolean(collapsedSections.certifications)}
+          onToggle={() => toggleSection("certifications")}
+        />
+        <FocusSection
+          collapsed={Boolean(collapsedSections.focus)}
+          onToggle={() => toggleSection("focus")}
+        />
+        <SiteFooter />
+        <a
+          href="#top"
+          aria-label="Back to top"
+          title="Back to top"
+          className="fixed bottom-5 right-5 z-50 grid size-12 place-items-center rounded-2xl bg-ocean text-white shadow-lg shadow-ocean/30 transition hover:-translate-y-1 hover:bg-ocean-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean focus-visible:ring-offset-4"
+        >
+          <ChevronUp size={22} />
+        </a>
+      </main>
+    </SmoothScroll>
   );
 }
 
