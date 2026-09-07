@@ -5,6 +5,7 @@ import { Button } from "@/src/components/ui/button";
 import { Chip } from "@/src/components/ui/chip";
 import { HeroSlideshow } from "@/src/components/ui/hero-slideshow";
 import { PreviewImage } from "@/src/components/ui/preview-image";
+import { SectionReveal } from "@/src/components/ui/section-reveal";
 import { reveal } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 import { profile, socialGallery } from "@/src/content/portfolio";
@@ -17,7 +18,7 @@ type SectionProps = {
 
 export function SocialSection({ collapsed, onToggle }: SectionProps) {
     return (
-        <section
+        <SectionReveal
             id="social"
             className="relative overflow-hidden bg-gradient-to-b from-sand to-coral-soft py-24"
         >
@@ -137,6 +138,6 @@ export function SocialSection({ collapsed, onToggle }: SectionProps) {
                     </>
                 ) : null}
             </div>
-        </section>
+        </SectionReveal>
     );
 }

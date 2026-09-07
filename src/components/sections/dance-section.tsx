@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Chip } from "@/src/components/ui/chip";
 import { ScrollableGallery } from "@/src/components/ui/scrollable-gallery";
 import { SectionIntro } from "@/src/components/ui/section-intro";
+import { SectionReveal } from "@/src/components/ui/section-reveal";
 import { reveal } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 import {
@@ -31,7 +32,7 @@ export function DanceSection({
     danceExperience,
 }: SectionProps) {
     return (
-        <section
+        <SectionReveal
             id="dance"
             className="relative overflow-hidden bg-gradient-to-b from-coral-soft to-paper py-24"
         >
@@ -202,6 +203,6 @@ export function DanceSection({
                     </>
                 ) : null}
             </div>
-        </section>
+        </SectionReveal>
     );
 }

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 
 import { Chip } from "@/src/components/ui/chip";
 import { SectionIntro } from "@/src/components/ui/section-intro";
+import { SectionReveal } from "@/src/components/ui/section-reveal";
 import { reveal } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 import { experience } from "@/src/content/portfolio";
@@ -15,7 +16,7 @@ type SectionProps = {
 
 export function ExperienceSection({ collapsed, onToggle }: SectionProps) {
     return (
-        <section id="experience" className="bg-ocean-soft py-24">
+        <SectionReveal id="experience" className="bg-ocean-soft py-24">
             <div className="mx-auto max-w-6xl px-5">
                 <div className="mb-8">
                     <SectionIntro
@@ -126,6 +127,6 @@ export function ExperienceSection({ collapsed, onToggle }: SectionProps) {
                     </>
                 ) : null}
             </div>
-        </section>
+        </SectionReveal>
     );
 }
