@@ -7,6 +7,8 @@ import awsAgentCoreWorkshopOne from "@/src/assets/aws/ws/aws-intro-to-rag-with-a
 import awsAgentCoreWorkshopTwo from "@/src/assets/aws/ws/aws-intro-to-rag-with-amazon-agentcore-2.png";
 import symphonyTeamPhoto from "@/src/assets/symphony3/group-photo-1.jpg";
 import symphonyTeamPhotoTwo from "@/src/assets/symphony3/group-photo-2.jpg";
+import symphonyTeamPhotoThree from "@/src/assets/symphony3/group-photo-3.jpg";
+import symphonyTeamPhotoFour from "@/src/assets/symphony3/group-photo-4.jpg";
 import foGuangShanOne from "@/src/assets/volunteering/2026-fo-guang-shan/1.jpg";
 import foGuangShanTwo from "@/src/assets/volunteering/2026-fo-guang-shan/2.jpg";
 import blackBallLogo from "@/src/assets/career/blackball-logo.jpg";
@@ -74,11 +76,6 @@ export const heroImages = {
 // Auto-advancing hero slideshow — Symphony3 moments front and center.
 export const heroSlides = [
   {
-    src: awsCitadelWorkshop,
-    alt: "Warrant Tsai with colleagues at a Symphony3 AWS workshop",
-    title: "Symphony3 AWS Citadel workshop",
-  },
-  {
     src: symphonyTeamPhoto,
     alt: "Symphony3 team group photo",
     title: "Symphony3 team",
@@ -88,6 +85,20 @@ export const heroSlides = [
     alt: "Warrant Tsai with the Symphony3 team",
     title: "Symphony3 crew",
   },
+  {
+    src: symphonyTeamPhotoThree,
+    alt: "Warrant Tsai with the Symphony3 team and Dadfit team",
+    title: "Symphony3 crew",
+  },
+  {
+    src: symphonyTeamPhotoFour,
+    alt: "Warrant Tsai with the Symphony3 team and Dadfit team",
+    title: "Symphony3 crew",
+  },  {
+    src: awsCitadelWorkshop,
+    alt: "Warrant Tsai with colleagues at a Symphony3 AWS workshop",
+    title: "Symphony3 AWS Citadel workshop",
+  }
 ];
 
 export const skills = [
@@ -114,7 +125,19 @@ export const experience: ExperienceItem[] = [
     locationType: "Hybrid",
     mark: "S3",
     logo: symphony3Logo,
-    bullets: [],
+    bullets: [
+      "Produced regular AWS cost reports and shared optimization findings with the finance team to keep cloud spend aligned with budget.",
+      "Maintained cost-tracking documentation and infrastructure runbooks so finance and engineering stayed aligned on operational spend.",
+      "Authored a developer team handbook covering project architecture and workflow standards, giving new interns a reliable ramp-up reference.",
+      "Trained and onboarded new interns into development workflows and team standards, using Mandarin and English bilingual communication to ensure smooth ramp-up.",
+      "Worked continuously with the CIO to evaluate and confirm the best-fit technology options for ongoing projects.",
+      "Resolved a Microsoft 365 email domain configuration issue by reviewing DMARC reports and tightening the authentication policy.",
+      "Set up SoftEther VPN to provide secure remote access for the team, replacing an unreliable legacy setup.",
+      "Migrated an RDS database from unencrypted to encrypted by coordinating with the developer, client contact, and project manager to align on consent, timeline, and impact, then performed the manual AWS reconfiguration myself.",
+      "Supported the AWS Foundations Technical Review (FTR) audit for AWS Marketplace readiness, collaborating closely with a colleague to gather evidence, address findings, and deliver the required documentation and infrastructure compliance tasks.",
+      "Migrated the AWS Partner Portal login to AWS Access Portal (IAM Identity Center), streamlining centralized authentication and improving access management across the team.",
+    ],
+    skills: ["AWS", "RDS", "Cost Optimization", "Microsoft 365", "DMARC", "SoftEther VPN", "IAM Identity Center", "Technical Documentation", "Intern Onboarding", "Cross-functional Collaboration"],
   },
   {
     period: "May 2024 - July 2026",
