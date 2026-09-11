@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Smooth3DSlideshow from "@/src/components/originkit/ui/coverflowgallery";
 import { Chip } from "@/src/components/ui/chip";
 import { SectionIntro } from "@/src/components/ui/section-intro";
+import { SectionReveal } from "@/src/components/ui/section-reveal";
 import { reveal } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 import {
@@ -31,7 +32,7 @@ export function DanceSection({
     danceExperience,
 }: SectionProps) {
     return (
-        <section
+        <SectionReveal
             id="dance"
             className="relative overflow-hidden bg-gradient-to-b from-coral-soft to-paper py-24"
         >
@@ -210,6 +211,6 @@ export function DanceSection({
                     </>
                 ) : null}
             </div>
-        </section>
+        </SectionReveal>
     );
 }

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 
 import { Chip } from "@/src/components/ui/chip";
 import { SectionIntro } from "@/src/components/ui/section-intro";
+import { SectionReveal } from "@/src/components/ui/section-reveal";
 import { reveal } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 import { experience } from "@/src/content/portfolio";
@@ -15,7 +16,7 @@ type SectionProps = {
 
 export function ExperienceSection({ collapsed, onToggle }: SectionProps) {
     return (
-        <section id="experience" className="bg-ocean-soft py-24">
+        <SectionReveal id="experience" className="bg-ocean-soft py-24">
             <div className="mx-auto max-w-6xl px-5">
                 <div className="mb-8">
                     <SectionIntro
@@ -96,6 +97,9 @@ export function ExperienceSection({ collapsed, onToggle }: SectionProps) {
                                                     <div className="mt-0.5 text-xs text-slate-400">
                                                         {item.location} · {item.locationType}
                                                     </div>
+                                                    <div className="mt-1 text-xs font-medium text-ocean">
+                                                        Timeline: {item.period}
+                                                    </div>
                                                 </div>
                                             </div>
                                             <ul className="mt-4 space-y-2 text-sm text-slate-600">
@@ -123,6 +127,6 @@ export function ExperienceSection({ collapsed, onToggle }: SectionProps) {
                     </>
                 ) : null}
             </div>
-        </section>
+        </SectionReveal>
     );
 }

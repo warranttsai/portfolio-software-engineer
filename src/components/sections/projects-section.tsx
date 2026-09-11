@@ -1,5 +1,6 @@
 import { ProjectGrid } from "@/src/components/ui/project-grid";
 import { SectionIntro } from "@/src/components/ui/section-intro";
+import { SectionReveal } from "@/src/components/ui/section-reveal";
 import type { DataState } from "@/types/data-state";
 import type { Project } from "@/types/portfolio";
 import { projects } from "@/src/content/portfolio";
@@ -17,7 +18,7 @@ type SectionProps = {
 
 export function ProjectsSection({ collapsed, onToggle }: SectionProps) {
     return (
-        <section id="projects" className="py-24">
+        <SectionReveal id="projects" className="py-24">
             <div className="mx-auto max-w-6xl px-5">
                 <div className="mb-8">
                     <SectionIntro
@@ -40,6 +41,6 @@ export function ProjectsSection({ collapsed, onToggle }: SectionProps) {
                 </div>
                 {!collapsed ? <ProjectGrid state={projectState} /> : null}
             </div>
-        </section>
+        </SectionReveal>
     );
 }

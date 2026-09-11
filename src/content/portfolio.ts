@@ -7,6 +7,8 @@ import awsAgentCoreWorkshopOne from "@/src/assets/aws/ws/aws-intro-to-rag-with-a
 import awsAgentCoreWorkshopTwo from "@/src/assets/aws/ws/aws-intro-to-rag-with-amazon-agentcore-2.png";
 import symphonyTeamPhoto from "@/src/assets/symphony3/group-photo-1.jpg";
 import symphonyTeamPhotoTwo from "@/src/assets/symphony3/group-photo-2.jpg";
+import symphonyTeamPhotoThree from "@/src/assets/symphony3/group-photo-3.jpg";
+import symphonyTeamPhotoFour from "@/src/assets/symphony3/group-photo-4.jpg";
 import foGuangShanOne from "@/src/assets/volunteering/2026-fo-guang-shan/1.jpg";
 import foGuangShanTwo from "@/src/assets/volunteering/2026-fo-guang-shan/2.jpg";
 import blackBallLogo from "@/src/assets/career/blackball-logo.jpg";
@@ -74,11 +76,6 @@ export const heroImages = {
 // Auto-advancing hero slideshow — Symphony3 moments front and center.
 export const heroSlides = [
   {
-    src: awsCitadelWorkshop,
-    alt: "Warrant Tsai with colleagues at a Symphony3 AWS workshop",
-    title: "Symphony3 AWS Citadel workshop",
-  },
-  {
     src: symphonyTeamPhoto,
     alt: "Symphony3 team group photo",
     title: "Symphony3 team",
@@ -88,6 +85,20 @@ export const heroSlides = [
     alt: "Warrant Tsai with the Symphony3 team",
     title: "Symphony3 crew",
   },
+  {
+    src: symphonyTeamPhotoThree,
+    alt: "Warrant Tsai with the Symphony3 team and Dadfit team",
+    title: "Symphony3 crew",
+  },
+  {
+    src: symphonyTeamPhotoFour,
+    alt: "Warrant Tsai with the Symphony3 team and Dadfit team",
+    title: "Symphony3 crew",
+  },  {
+    src: awsCitadelWorkshop,
+    alt: "Warrant Tsai with colleagues at a Symphony3 AWS workshop",
+    title: "Symphony3 AWS Citadel workshop",
+  }
 ];
 
 export const skills = [
@@ -106,8 +117,8 @@ export const skills = [
 
 export const experience: ExperienceItem[] = [
   {
-    period: "Aug 2026 - Present",
-    role: "DevOps Engineer",
+    period: "July 2026 - Present",
+    role: "DevOps",
     company: "Symphony3",
     employmentType: "Full-time",
     location: "Melbourne, Victoria, Australia",
@@ -115,19 +126,21 @@ export const experience: ExperienceItem[] = [
     mark: "S3",
     logo: symphony3Logo,
     bullets: [
-      'Transitioned from Associate Engineer into a dedicated <span class="font-semibold text-slate-900">DevOps</span> role, focused on infrastructure, deployment pipelines, and cloud operations.',
-      'Managed infrastructure maintenance and deployment workflows across AWS, Upsun, and cPanel to support reliable code delivery.',
-      'Analyzed cloud resource usage, identified inefficiencies, and <span class="font-semibold text-slate-900">right-sized environments</span> to reduce operational overhead.',
-      'Led technical integration work connecting platforms and services into unified, high-performance workflows.',
-      '<span class="font-semibold text-slate-900">Migrated an RDS database from unencrypted to encrypted</span> by coordinating with the developer, client contact, and project manager to align on consent, timeline, and impact, then performed the manual AWS reconfiguration myself.',
-      'Supported the <span class="font-semibold text-slate-900">AWS Foundations Technical Review (FTR)</span> audit for AWS Marketplace readiness, collaborating closely with a colleague to gather evidence, address findings, and deliver the required documentation and infrastructure compliance tasks.',
-      'Migrated the AWS Partner Portal login to <span class="font-semibold text-slate-900">AWS Access Portal (IAM Identity Center)</span>, streamlining centralized authentication and improving access management across the team.',
-      '<span class="font-semibold text-slate-900">Onboarded a new intern developer</span> by introducing them to project architecture, deployment workflows, and team standards, using Mandarin and English bilingual communication to ensure smooth ramp-up.',
+      "Produced regular AWS cost reports and shared optimization findings with the finance team to keep cloud spend aligned with budget.",
+      "Maintained cost-tracking documentation and infrastructure runbooks so finance and engineering stayed aligned on operational spend.",
+      "Authored a developer team handbook covering project architecture and workflow standards, giving new interns a reliable ramp-up reference.",
+      "Trained and onboarded new interns into development workflows and team standards, using Mandarin and English bilingual communication to ensure smooth ramp-up.",
+      "Worked continuously with the CIO to evaluate and confirm the best-fit technology options for ongoing projects.",
+      "Resolved a Microsoft 365 email domain configuration issue by reviewing DMARC reports and tightening the authentication policy.",
+      "Set up SoftEther VPN to provide secure remote access for the team, replacing an unreliable legacy setup.",
+      "Migrated an RDS database from unencrypted to encrypted by coordinating with the developer, client contact, and project manager to align on consent, timeline, and impact, then performed the manual AWS reconfiguration myself.",
+      "Supported the AWS Foundations Technical Review (FTR) audit for AWS Marketplace readiness, collaborating closely with a colleague to gather evidence, address findings, and deliver the required documentation and infrastructure compliance tasks.",
+      "Migrated the AWS Partner Portal login to AWS Access Portal (IAM Identity Center), streamlining centralized authentication and improving access management across the team.",
     ],
-    skills: ["AWS", "RDS", "CI/CD", "Upsun", "cPanel", "Cloud Infrastructure", "Systems Integration", "React", "Python"],
+    skills: ["AWS", "RDS", "Cost Optimization", "Microsoft 365", "DMARC", "SoftEther VPN", "IAM Identity Center", "Technical Documentation", "Intern Onboarding", "Cross-functional Collaboration"],
   },
   {
-    period: "May 2024 - Aug 2026",
+    period: "May 2024 - July 2026",
     role: "Associate Engineer",
     company: "Symphony3",
     employmentType: "Full-time",
@@ -314,6 +327,85 @@ export const socialGallery = [
   },
 ];
 
+// -- Instagram reels ------------------------------------------------------
+// Drop your favorite Instagram reel URLs here. They render inline as playable
+// embeds (using Instagram's official embed.js) at the bottom of the Social
+// section. To grab a reel URL: open the reel in the Instagram app, tap the
+// three dots, choose "Link" — it will copy something like
+// https://www.instagram.com/reel/ABC123xyz/
+
+export type InstagramReelItem = {
+  /** Full Instagram reel URL, e.g. https://www.instagram.com/reel/ABC123/ */
+  url: string;
+  /** Short title shown above the embed and used as the fallback anchor text. */
+  title: string;
+  /** Optional 1-line caption shown beneath the title. */
+  caption?: string;
+};
+
+export const reels: InstagramReelItem[] = [
+  {
+    url: "https://www.instagram.com/reel/DbiNQGWyzaH/",
+    title: "Disha Collective",
+    caption:
+      "Rap&Dance Freestyle for Disha Collective.",
+  },
+  {
+    url: "https://www.instagram.com/reel/DJQ3OQOT6UM/",
+    title: "Hip Hop International Melbourne",
+    caption:
+      "On stage at HHI Melbourne with the team. A high-energy set that earned us the gold.",
+  },
+  {
+    url: "https://www.instagram.com/reel/Dc0zbAfS6s5/",
+    title: "愛情恰恰 choreo with Jolin",
+    caption:
+      "A Taiwanese Hokkien classic reimagined as a choreo piece with Jolin.",
+  },
+  {
+    url: "https://www.instagram.com/p/DW7_OzaEaHr/",
+    title: "Deep Slyme Vol. 2",
+    caption:
+      "Highlight reel from the Deep Slyme Vol. 2 showcase.",
+  },
+  {
+    url: "https://www.instagram.com/reel/DUk4gHgkwnJ/",
+    title: "Hip-hop choreo with Daphanie",
+    caption:
+      "Choreo piece built with Daphanie.",
+  },
+  {
+    url: "https://www.instagram.com/p/DYuFhTHEsjJ/",
+    title: "Funk Station Vol.4",
+    caption:
+      "Locking battle at Funk Station.",
+  },
+  {
+    url: "https://www.instagram.com/reel/DU5Y4fEkhFi/",
+    title: "Hip-hop New Jack Swing set",
+    caption:
+      "A New Jack Swing-flavoured hip-hop set.",
+  },
+  {
+    url: "https://www.instagram.com/reel/DNnsdT6zvyP/",
+    title: "Locking choreo study",
+    caption:
+      "Locking choreo focused on precision.",
+  },
+  {
+    url: "https://www.instagram.com/p/DGUvPBdys-a/",
+    title: "Indigo Blue x Nanaka team showcase",
+    caption:
+      "Team showcase of Indigo Blue with Nanaka.",
+  },
+  {
+    url: "https://www.instagram.com/reel/DS-BNvNki97/",
+    title: "Farewell choreo for a friend heading to China",
+    caption:
+      "A choreo made to dance together with a friend before she headed back to China.",
+  },
+];
+
 // -- Street dance ---------------------------------------------------------
 
 // Eagerly import every showcase image so the gallery stays data-driven.
@@ -388,7 +480,7 @@ export const danceTimeline: DanceMilestone[] = [
     label: "September 24, 2017",
     emoji: "💃",
     title: "Started dancing with Popping",
-    description: "Where the journey began—discovering the groove and isolation of Popping dance.",
+    description: "Where the journey began: discovering the groove and isolation of Popping dance.",
   },
   {
     date: "2020-07-01",

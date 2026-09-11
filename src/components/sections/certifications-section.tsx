@@ -2,6 +2,7 @@ import { Award } from "lucide-react";
 
 import { PreviewImage } from "@/src/components/ui/preview-image";
 import { SectionIntro } from "@/src/components/ui/section-intro";
+import { SectionReveal } from "@/src/components/ui/section-reveal";
 import { certifications } from "@/src/content/portfolio";
 import { SectionToggleButton } from "@/src/components/sections/section-toggle-button";
 
@@ -15,7 +16,7 @@ export function CertificationsSection({
     onToggle,
 }: SectionProps) {
     return (
-        <section id="certifications" className="py-24">
+        <SectionReveal id="certifications" className="py-24">
             <div className="mx-auto max-w-6xl px-5">
                 <div className="mb-8">
                     <SectionIntro
@@ -65,6 +66,6 @@ export function CertificationsSection({
                     </div>
                 ) : null}
             </div>
-        </section>
+        </SectionReveal>
     );
 }

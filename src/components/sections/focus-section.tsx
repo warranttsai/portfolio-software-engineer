@@ -1,6 +1,7 @@
 import { BadgeCheck } from "lucide-react";
 
 import { Chip } from "@/src/components/ui/chip";
+import { SectionReveal } from "@/src/components/ui/section-reveal";
 import { SectionToggleButton } from "@/src/components/sections/section-toggle-button";
 
 type SectionProps = {
@@ -32,7 +33,7 @@ const focusCards = [
 
 export function FocusSection({ collapsed, onToggle }: SectionProps) {
     return (
-        <section
+        <SectionReveal
             id="focus"
             className="bg-gradient-to-b from-transparent to-ocean-soft/60 py-20"
         >
@@ -99,6 +100,6 @@ export function FocusSection({ collapsed, onToggle }: SectionProps) {
                     </div>
                 ) : null}
             </div>
-        </section>
+        </SectionReveal>
     );
 }
