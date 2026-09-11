@@ -322,6 +322,85 @@ export const socialGallery = [
   },
 ];
 
+// -- Instagram reels ------------------------------------------------------
+// Drop your favorite Instagram reel URLs here. They render inline as playable
+// embeds (using Instagram's official embed.js) at the bottom of the Social
+// section. To grab a reel URL: open the reel in the Instagram app, tap the
+// three dots, choose "Link" — it will copy something like
+// https://www.instagram.com/reel/ABC123xyz/
+
+export type InstagramReelItem = {
+  /** Full Instagram reel URL, e.g. https://www.instagram.com/reel/ABC123/ */
+  url: string;
+  /** Short title shown above the embed and used as the fallback anchor text. */
+  title: string;
+  /** Optional 1-line caption shown beneath the title. */
+  caption?: string;
+};
+
+export const reels: InstagramReelItem[] = [
+  {
+    url: "https://www.instagram.com/reel/DbiNQGWyzaH/",
+    title: "Disha Collective",
+    caption:
+      "Rap&Dance Freestyle for Disha Collective.",
+  },
+  {
+    url: "https://www.instagram.com/reel/DJQ3OQOT6UM/",
+    title: "Hip Hop International Melbourne",
+    caption:
+      "On stage at HHI Melbourne with the team. A high-energy set that earned us the gold.",
+  },
+  {
+    url: "https://www.instagram.com/reel/Dc0zbAfS6s5/",
+    title: "愛情恰恰 choreo with Jolin",
+    caption:
+      "A Taiwanese Hokkien classic reimagined as a choreo piece with Jolin.",
+  },
+  {
+    url: "https://www.instagram.com/p/DW7_OzaEaHr/",
+    title: "Deep Slyme Vol. 2",
+    caption:
+      "Highlight reel from the Deep Slyme Vol. 2 showcase.",
+  },
+  {
+    url: "https://www.instagram.com/reel/DUk4gHgkwnJ/",
+    title: "Hip-hop choreo with Daphanie",
+    caption:
+      "Choreo piece built with Daphanie.",
+  },
+  {
+    url: "https://www.instagram.com/p/DYuFhTHEsjJ/",
+    title: "Funk Station Vol.4",
+    caption:
+      "Locking battle at Funk Station.",
+  },
+  {
+    url: "https://www.instagram.com/reel/DU5Y4fEkhFi/",
+    title: "Hip-hop New Jack Swing set",
+    caption:
+      "A New Jack Swing-flavoured hip-hop set.",
+  },
+  {
+    url: "https://www.instagram.com/reel/DNnsdT6zvyP/",
+    title: "Locking choreo study",
+    caption:
+      "Locking choreo focused on precision.",
+  },
+  {
+    url: "https://www.instagram.com/p/DGUvPBdys-a/",
+    title: "Indigo Blue x Nanaka team showcase",
+    caption:
+      "Team showcase of Indigo Blue with Nanaka.",
+  },
+  {
+    url: "https://www.instagram.com/reel/DS-BNvNki97/",
+    title: "Farewell choreo for a friend heading to China",
+    caption:
+      "A choreo made to dance together with a friend before she headed back to China.",
+  },
+];
+
 // -- Street dance ---------------------------------------------------------
 
 // Eagerly import every showcase image so the gallery stays data-driven.
@@ -396,7 +475,7 @@ export const danceTimeline: DanceMilestone[] = [
     label: "September 24, 2017",
     emoji: "💃",
     title: "Started dancing with Popping",
-    description: "Where the journey began—discovering the groove and isolation of Popping dance.",
+    description: "Where the journey began: discovering the groove and isolation of Popping dance.",
   },
   {
     date: "2020-07-01",

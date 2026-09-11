@@ -4,11 +4,12 @@ import { motion } from "framer-motion";
 import { Button } from "@/src/components/ui/button";
 import { Chip } from "@/src/components/ui/chip";
 import { HeroSlideshow } from "@/src/components/ui/hero-slideshow";
+import { InstagramReel } from "@/src/components/ui/instagram-reel";
 import { PreviewImage } from "@/src/components/ui/preview-image";
 import { SectionReveal } from "@/src/components/ui/section-reveal";
 import { reveal } from "@/lib/animations";
 import { cn } from "@/lib/utils";
-import { profile, socialGallery } from "@/src/content/portfolio";
+import { profile, reels, socialGallery } from "@/src/content/portfolio";
 import { SectionToggleButton } from "@/src/components/sections/section-toggle-button";
 
 type SectionProps = {
@@ -135,6 +136,67 @@ export function SocialSection({ collapsed, onToggle }: SectionProps) {
                                 </motion.div>
                             ))}
                         </div>
+                        {reels.length > 0 ? (
+                            <div className="mt-20">
+                                <motion.div
+                                    className="mb-8 flex flex-wrap items-end justify-between gap-4"
+                                    variants={reveal}
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={{ once: true }}
+                                >
+                                    <div>
+                                        <Chip coral>
+                                            <Play size={12} /> Reels
+                                        </Chip>
+                                        <h3 className="mt-4 text-3xl font-extrabold md:text-4xl">
+                                            Watch a few of my favorite{" "}
+                                            <span className="grad-coral">reels</span>
+                                        </h3>
+                                        <p className="mt-3 max-w-xl text-slate-600">
+                                            Short clips from dance, workshops, and life outside
+                                            the editor.
+                                        </p>
+                                    </div>
+                                    <Button
+                                        asChild
+                                        variant="outline"
+                                        className="rounded-2xl border-slate-200 bg-white text-slate-700 hover:border-coral hover:text-coral"
+                                    >
+                                        <a
+                                            href={profile.instagramUrl}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                        >
+                                            <Instagram size={16} /> More on Instagram
+                                        </a>
+                                    </Button>
+                                </motion.div>
+                                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                                    {reels.map((reel, index) => (
+                                        <motion.figure
+                                            key={reel.url}
+                                            className="space-y-3"
+                                            variants={reveal}
+                                            initial="hidden"
+                                            whileInView="visible"
+                                            viewport={{ once: true }}
+                                            transition={{ delay: index * 0.08 }}
+                                        >
+                                            <InstagramReel
+                                                url={reel.url}
+                                                title={reel.title}
+                                            />
+                                            {reel.caption ? (
+                                                <figcaption className="text-sm text-slate-500">
+                                                    {reel.caption}
+                                                </figcaption>
+                                            ) : null}
+                                        </motion.figure>
+                                    ))}
+                                </div>
+                            </div>
+                        ) : null}
                     </>
                 ) : null}
             </div>
